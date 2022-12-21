@@ -30,6 +30,9 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  console.log("currentWeather", currentWeather);
+  console.log("forecast", forecast);
+
   return (
     <div className="container">
       <div className="search">

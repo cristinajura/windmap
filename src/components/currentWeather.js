@@ -103,7 +103,7 @@ const CurrentWeather = ({ data }) => {
                     }
                   : {
                       textAlign: "left",
-                      marginLeft: "55px",
+                      marginLeft: "25px",
                       marginTop: "-15px",
                     }
               }
