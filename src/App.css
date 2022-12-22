@@ -13,7 +13,7 @@
   margin: 10px auto;
   box-shadow: 3px 4px 10px rgb(63, 64, 66);
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .search {
     width: 75%;
     margin: 10px auto;
@@ -32,10 +32,10 @@
   box-shadow: 3px 4px 15px rgb(63, 64, 66);
   margin: 20px auto 10px auto;
   border-radius: 10px;
-  max-width: 1000px;
+  max-width: 1100px;
   padding: 5px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .top {
     flex-direction: column;
     width: 75%;
@@ -53,9 +53,9 @@
   max-height: 300px;
   border-radius: 5px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .top img {
-    max-width: 1150px;
+    max-width: 1300px;
     max-height: 550px;
     margin: -5px -5px 0px -5px;
   }
@@ -67,7 +67,7 @@
   line-height: 1.8;
   text-align: right;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .weather {
     margin-top: 5px;
   }
@@ -79,7 +79,7 @@
   margin-top: 10px;
   text-align: right;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .top-weather {
     text-align: left;
     margin-top: 0px;
@@ -91,7 +91,7 @@
   justify-content: space-between;
   margin-top: 10px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .bottom-weather {
     flex-direction: column;
   }
@@ -104,7 +104,7 @@
   margin-left: 15px;
   margin-right: 10%;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .datas1 {
     margin: 10px 0px 0px 0px;
   }
@@ -117,7 +117,7 @@
   margin-right: 15px;
   margin-left: 10%;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .datas2 {
     margin: 20px 0px 0px 0px;
   }
@@ -139,7 +139,7 @@
   margin-right: 10px;
   border-radius: 10px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .weather-icon {
     margin-right: 0px;
   }
@@ -152,7 +152,7 @@
   line-height: 2;
   padding-right: 10px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .wind-box {
     padding-right: 10px;
   }
@@ -171,7 +171,7 @@
   color: white;
   cursor: pointer;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .forecast {
     flex-direction: column;
     width: 75%;
@@ -192,7 +192,7 @@
   border-radius: 5px;
   margin-left: -10px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .forecast-bottom {
     justify-content: space-between;
     background: linear-gradient(0.25turn, #0e264d, #24486a, #284969);
@@ -209,7 +209,7 @@
   font-weight: 600;
   margin-right: 15px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .hours {
     text-align: left;
     margin-top: 5px;
@@ -222,7 +222,7 @@
   padding-right: 10px;
   padding-bottom: 5px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .icon-align {
     text-align: left;
     margin-bottom: -95px;
@@ -230,9 +230,8 @@
   }
 }
 .icon-small {
-  width: 50px;
+  width: 40px;
   margin-bottom: -5px;
-  /* background: #f2f2f2; */
   border-radius: 5px;
 }
 .day {
@@ -240,7 +239,7 @@
   font-size: 20px;
   width: 112px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .day {
     padding-left: 10px;
   }
@@ -251,7 +250,7 @@
   margin: 0;
   padding-bottom: 18px;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .description {
     line-height: 0.8;
   }
@@ -271,7 +270,7 @@
 .line {
   display: none;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1300px) {
   .line {
     display: block;
     width: 100%;
@@ -283,7 +282,7 @@
   font-size: 24px;
 }
 .spacing {
-  line-height: 1.7;
+  line-height: 1.8;
 }
 .day-container {
   display: flex;

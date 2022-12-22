@@ -35,7 +35,7 @@ const Forecast = ({ data }) => {
   const showOrHide2 = show2 ? "show2" : "hide";
   const showOrHide3 = show3 ? "show3" : "hide";
 
-  let isTabletOrPhone = useMediaQuery("(max-width:1150px)");
+  let isTabletOrPhone = useMediaQuery("(max-width:1300px)");
 
   const dayInWeek = new Date().getDay();
   const today = dayInWeek - 1;
@@ -44,23 +44,23 @@ const Forecast = ({ data }) => {
   );
 
   const hourInDay = new Date().getHours();
-  const nextHour =
-    hourInDay < 3
+  const currHour =
+    hourInDay < 2
+      ? HOURS.slice(0)
+      : hourInDay < 5
       ? HOURS.slice(1)
-      : hourInDay < 6
+      : hourInDay < 8
       ? HOURS.slice(2)
-      : hourInDay < 9
+      : hourInDay < 11
       ? HOURS.slice(3)
-      : hourInDay < 12
+      : hourInDay < 14
       ? HOURS.slice(4)
-      : hourInDay < 15
+      : hourInDay < 17
       ? HOURS.slice(5)
-      : hourInDay < 18
+      : hourInDay < 20
       ? HOURS.slice(6)
-      : hourInDay < 21
-      ? HOURS.slice(7)
-      : HOURS.slice(0);
-  const nextHourLength = nextHour.length;
+      : HOURS.slice(7);
+  const currHourLength = currHour.length;
 
   return (
     <div>
@@ -74,7 +74,7 @@ const Forecast = ({ data }) => {
             }}
           >
             <div className="day">
-              {nextHour[0] !== "00:00" ? "Today" : "Tomorrow"}
+              {currHour[0] !== "00:00" ? "Today" : "Tomorrow"}
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide}>
@@ -84,14 +84,22 @@ const Forecast = ({ data }) => {
               <></>
             )}
           </div>
-          {data.list.slice(0, nextHourLength).map((item, idx) => (
+          {data.list.slice(0, currHourLength).map((item, idx) => (
             <div key={idx}>
               <div className="details">
                 <div className="line"></div>
-                <div className="hours">{nextHour[idx]}</div>
+                <div className="hours">{currHour[idx]}</div>
                 <div className="icon-align">
                   <img
-                    src={`icons/${item.weather[0].icon}.png`}
+                    src={
+                      item.weather[0].description === "overcast clouds"
+                        ? "icons/05.png"
+                        : item.weather[0].description === "snow"
+                        ? "icons/14.png"
+                        : item.weather[0].description === "moderate rain"
+                        ? "icons/06.png"
+                        : `icons/${item.weather[0].icon}.png`
+                    }
                     alt="icon"
                     className="icon-small"
                   />
@@ -178,15 +186,22 @@ const Forecast = ({ data }) => {
 
                   <div className="spacing" style={{ textAlign: "right" }}>
                     <div className="min-max">
-                      <div>{Math.round(item.main.temp_max)}</div>
-                      <div>- {Math.round(item.main.temp_min)}°C</div>
+                      <div>{Math.floor(item.main.temp_max)}</div>
+                      <div>- {Math.floor(item.main.temp_min)}°C</div>
                     </div>
-                    <div>{Math.round(item.main.feels_like)}°C</div>
+                    <div>{Math.floor(item.main.feels_like)}°C</div>
                     <div>{item.main.pressure} hPa</div>
                     <div>{item.main.grnd_level} hPa</div>
                     <div>{item.main.humidity}%</div>
-                    <div>{item.visibility} m</div>
                     <div>{item.clouds.all}%</div>
+                    <div>
+                      {item.rain
+                        ? item.rain[`3h`]
+                        : item.snow
+                        ? item.snow[`3h`]
+                        : "0"}
+                    </div>
+                    <div>{item.pop * 100}%</div>
                   </div>
                 </div>
               </div>
@@ -205,7 +220,7 @@ const Forecast = ({ data }) => {
             }}
           >
             <div className="day">
-              {nextHour[0] !== "00:00" ? "Tomorrow" : forecastDays[2]}
+              {currHour[0] !== "00:00" ? "Tomorrow" : forecastDays[2]}
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide1}>
@@ -216,7 +231,7 @@ const Forecast = ({ data }) => {
             )}
           </div>
           {data.list
-            .slice(nextHourLength, nextHourLength + 8)
+            .slice(currHourLength, currHourLength + 8)
             .map((item, idx) => (
               <div key={idx}>
                 <div className="details">
@@ -224,7 +239,15 @@ const Forecast = ({ data }) => {
                   <div className="hours">{HOURS[idx]}</div>
                   <div className="icon-align">
                     <img
-                      src={`icons/${item.weather[0].icon}.png`}
+                      src={
+                        item.weather[0].description === "overcast clouds"
+                          ? "icons/05.png"
+                          : item.weather[0].description === "snow"
+                          ? "icons/14.png"
+                          : item.weather[0].description === "moderate rain"
+                          ? "icons/06.png"
+                          : `icons/${item.weather[0].icon}.png`
+                      }
                       alt="icon"
                       className="icon-small"
                     />
@@ -311,15 +334,22 @@ const Forecast = ({ data }) => {
 
                     <div className="spacing" style={{ textAlign: "right" }}>
                       <div className="min-max">
-                        <div>{Math.round(item.main.temp_max)}</div>
-                        <div>- {Math.round(item.main.temp_min)}°C</div>
+                        <div>{Math.floor(item.main.temp_max)}</div>
+                        <div>- {Math.floor(item.main.temp_min)}°C</div>
                       </div>
-                      <div>{Math.round(item.main.feels_like)}°C</div>
+                      <div>{Math.floor(item.main.feels_like)}°C</div>
                       <div>{item.main.pressure} hPa</div>
                       <div>{item.main.grnd_level} hPa</div>
                       <div>{item.main.humidity}%</div>
-                      <div>{item.visibility} m</div>
                       <div>{item.clouds.all}%</div>
+                      <div>
+                        {item.rain
+                          ? item.rain[`3h`]
+                          : item.snow
+                          ? item.snow[`3h`]
+                          : "0"}
+                      </div>
+                      <div>{item.pop * 100}%</div>
                     </div>
                   </div>
                 </div>
@@ -347,7 +377,7 @@ const Forecast = ({ data }) => {
             )}
           </div>
           {data.list
-            .slice(nextHourLength + 8, nextHourLength + 16)
+            .slice(currHourLength + 8, currHourLength + 16)
             .map((item, idx) => (
               <div key={idx}>
                 <div className="details">
@@ -355,7 +385,15 @@ const Forecast = ({ data }) => {
                   <div className="hours">{HOURS[idx]}</div>
                   <div className="icon-align">
                     <img
-                      src={`icons/${item.weather[0].icon}.png`}
+                      src={
+                        item.weather[0].description === "overcast clouds"
+                          ? "icons/05.png"
+                          : item.weather[0].description === "snow"
+                          ? "icons/14.png"
+                          : item.weather[0].description === "moderate rain"
+                          ? "icons/06.png"
+                          : `icons/${item.weather[0].icon}.png`
+                      }
                       alt="icon"
                       className="icon-small"
                     />
@@ -442,15 +480,22 @@ const Forecast = ({ data }) => {
 
                     <div className="spacing" style={{ textAlign: "right" }}>
                       <div className="min-max">
-                        <div>{Math.round(item.main.temp_max)}</div>
-                        <div>- {Math.round(item.main.temp_min)}°C</div>
+                        <div>{Math.floor(item.main.temp_max)}</div>
+                        <div>- {Math.floor(item.main.temp_min)}°C</div>
                       </div>
-                      <div>{Math.round(item.main.feels_like)}°C</div>
+                      <div>{Math.floor(item.main.feels_like)}°C</div>
                       <div>{item.main.pressure} hPa</div>
                       <div>{item.main.grnd_level} hPa</div>
                       <div>{item.main.humidity}%</div>
-                      <div>{item.visibility} m</div>
                       <div>{item.clouds.all}%</div>
+                      <div>
+                        {item.rain
+                          ? item.rain[`3h`]
+                          : item.snow
+                          ? item.snow[`3h`]
+                          : "0"}
+                      </div>
+                      <div>{item.pop * 100}%</div>
                     </div>
                   </div>
                 </div>
@@ -478,7 +523,7 @@ const Forecast = ({ data }) => {
             )}
           </div>
           {data.list
-            .slice(nextHourLength + 16, nextHourLength + 24)
+            .slice(currHourLength + 16, currHourLength + 24)
             .map((item, idx) => (
               <div key={idx}>
                 <div className="details">
@@ -486,7 +531,15 @@ const Forecast = ({ data }) => {
                   <div className="hours">{HOURS[idx]}</div>
                   <div className="icon-align">
                     <img
-                      src={`icons/${item.weather[0].icon}.png`}
+                      src={
+                        item.weather[0].description === "overcast clouds"
+                          ? "icons/05.png"
+                          : item.weather[0].description === "snow"
+                          ? "icons/14.png"
+                          : item.weather[0].description === "moderate rain"
+                          ? "icons/06.png"
+                          : `icons/${item.weather[0].icon}.png`
+                      }
                       alt="icon"
                       className="icon-small"
                     />
@@ -573,15 +626,22 @@ const Forecast = ({ data }) => {
 
                     <div className="spacing" style={{ textAlign: "right" }}>
                       <div className="min-max">
-                        <div>{Math.round(item.main.temp_max)}</div>
-                        <div>- {Math.round(item.main.temp_min)}°C</div>
+                        <div>{Math.floor(item.main.temp_max)}</div>
+                        <div>- {Math.floor(item.main.temp_min)}°C</div>
                       </div>
-                      <div>{Math.round(item.main.feels_like)}°C</div>
+                      <div>{Math.floor(item.main.feels_like)}°C</div>
                       <div>{item.main.pressure} hPa</div>
                       <div>{item.main.grnd_level} hPa</div>
                       <div x>{item.main.humidity}%</div>
-                      <div>{item.visibility} m</div>
                       <div>{item.clouds.all}%</div>
+                      <div>
+                        {item.rain
+                          ? item.rain[`3h`]
+                          : item.snow
+                          ? item.snow[`3h`]
+                          : "0"}
+                      </div>
+                      <div>{item.pop * 100}%</div>
                     </div>
                   </div>
                 </div>
@@ -594,29 +654,24 @@ const Forecast = ({ data }) => {
 };
 
 const TextDetails = () => {
-  let isTabletOrPhone = useMediaQuery("(max-width:1150px)");
-
   return (
     <div>
       <div>Temperature</div>
-      {isTabletOrPhone ? (
-        <div>
-          Temperature <small>(feels - like)</small>
-        </div>
-      ) : (
-        <div>
-          <div>Feels Like</div>
-        </div>
-      )}
+      <div>
+        <div>Temperature felt</div>
+      </div>
       <div>
         Pressure <small>(sea leve)</small>
       </div>
       <div>
-        Pressure <small>(ground level)</small>
+        Pressure <small>(grounnd level)</small>
       </div>
-      <div>Humidity</div>
-      <div>Visibility</div>
+      <div>Relative humidity</div>
       <div>Clouds</div>
+      <div>
+        Precipitation <small>(mm/3h)</small>
+      </div>
+      <div>Precipitation probability</div>
     </div>
   );
 };

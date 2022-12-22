@@ -13,7 +13,7 @@ const CurrentWeather = ({ data }) => {
       ? (data.wind.gust * 3.6).toPrecision(3)
       : (data.wind.gust * 3.6).toPrecision(2);
 
-  let isTabletOrPhone = useMediaQuery("(max-width:1150px)");
+  let isTabletOrPhone = useMediaQuery("(max-width:1300px)");
 
   return (
     <div className="top">
@@ -27,7 +27,15 @@ const CurrentWeather = ({ data }) => {
           <div>
             <img
               className="weather-icon"
-              src={`icons/${data.weather[0].icon}.png`}
+              src={
+                data.weather[0].description === "overcast clouds"
+                  ? "icons/05.png"
+                  : data.weather[0].description === "snow"
+                  ? "icons/14.png"
+                  : data.weather[0].description === "moderate rain"
+                  ? "icons/06.png"
+                  : `icons/${data.weather[0].icon}.png`
+              }
               alt="weather icon"
             />
           </div>
@@ -133,19 +141,21 @@ const CurrentWeather = ({ data }) => {
             <div className="datas2">
               <div className="row">
                 <span>Temperature</span>
-                <span>{Math.round(data.main.temp)}°C</span>
+                <span>{Math.floor(data.main.temp)}°C</span>
               </div>
               <div className="row">
-                <span>Feels Like</span>
-                <span>{Math.round(data.main.feels_like)}°C</span>
+                <span>Temperature felt</span>
+                <span>{Math.floor(data.main.feels_like)}°C</span>
               </div>
               <div className="row">
-                <span>Humidity</span>
+                <span>Relative humidity</span>
                 <span>{data.main.humidity}%</span>
               </div>
               <div className="row">
-                <span>Visibility</span>
-                <span>{data.visibility} m</span>
+                <span>
+                  Precipitation <small>(mm/1h)</small>
+                </span>
+                <span>{data.rain ? data.rain[`1h`] : "0"}</span>
               </div>
             </div>
           </div>
