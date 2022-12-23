@@ -130,7 +130,7 @@
 }
 .description-top {
   font-size: 12px;
-  line-height: 1;
+  line-height: 1.5;
   margin: 0;
   padding-bottom: 8px;
 }
@@ -246,7 +246,7 @@
 }
 .description {
   font-size: 12px;
-  line-height: 1;
+  line-height: 0.8;
   margin: 0;
   padding-bottom: 18px;
 }
