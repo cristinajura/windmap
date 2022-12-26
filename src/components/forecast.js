@@ -201,7 +201,7 @@ const Forecast = ({ data }) => {
                         ? item.snow[`3h`]
                         : "0"}
                     </div>
-                    <div>{item.pop * 100}%</div>
+                    <div>{Math.round(item.pop * 100)}%</div>
                   </div>
                 </div>
               </div>
@@ -349,7 +349,7 @@ const Forecast = ({ data }) => {
                           ? item.snow[`3h`]
                           : "0"}
                       </div>
-                      <div>{item.pop * 100}%</div>
+                      <div>{Math.round(item.pop * 100)}%</div>
                     </div>
                   </div>
                 </div>
@@ -495,7 +495,7 @@ const Forecast = ({ data }) => {
                           ? item.snow[`3h`]
                           : "0"}
                       </div>
-                      <div>{item.pop * 100}%</div>
+                      <div>{Math.round(item.pop * 100)}%</div>
                     </div>
                   </div>
                 </div>
@@ -632,7 +632,7 @@ const Forecast = ({ data }) => {
                       <div>{Math.floor(item.main.feels_like)}°C</div>
                       <div>{item.main.pressure} hPa</div>
                       <div>{item.main.grnd_level} hPa</div>
-                      <div x>{item.main.humidity}%</div>
+                      <div>{item.main.humidity}%</div>
                       <div>{item.clouds.all}%</div>
                       <div>
                         {item.rain
@@ -641,7 +641,7 @@ const Forecast = ({ data }) => {
                           ? item.snow[`3h`]
                           : "0"}
                       </div>
-                      <div>{item.pop * 100}%</div>
+                      <div>{Math.round(item.pop * 100)}%</div>
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../api";
+import { FaSearch } from "react-icons/fa";
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
@@ -28,9 +29,16 @@ const Search = ({ onSearchChange }) => {
 
   return (
     <AsyncPaginate
-      placeholder="Location search..."
+      placeholder={
+        <div>
+          <div className="palceholderIcon">
+            <FaSearch />
+          </div>
+          <div className="placeholderText">Search for city...</div>
+        </div>
+      }
       debounceTimeout={600}
-      value={search}
+      value={"Search for city..."}
       onChange={handleChange}
       loadOptions={loadOptions}
     />

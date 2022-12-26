@@ -9,7 +9,7 @@
   }
 }
 .search {
-  max-width: 400px;
+  width: 400px;
   margin: 10px auto;
   box-shadow: 3px 4px 10px rgb(63, 64, 66);
 }
@@ -21,14 +21,39 @@
 }
 @media (max-width: 600px) {
   .search {
-    width: 95%;
+    width: 100%;
   }
+}
+.locations {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+}
+@media (max-width: 1300px) {
+  .locations {
+    flex-direction: column;
+  }
+}
+.sau {
+  margin-top: 20px;
+}
+@media (max-width: 1300px) {
+  .sau {
+    margin: auto;
+  }
+}
+.placeholderText {
+  margin-left: 30px;
+  font-weight: bold;
+}
+.palceholderIcon {
+  margin-bottom: -20px;
 }
 
 .top {
   display: flex;
   justify-content: space-between;
-  background: linear-gradient(#19577b, #061836);
+  background: linear-gradient(#06344e, #054c75, #011738);
   box-shadow: 3px 4px 15px rgb(63, 64, 66);
   margin: 20px auto 10px auto;
   border-radius: 10px;
@@ -45,7 +70,8 @@
 @media (max-width: 600px) {
   .top {
     flex-direction: column;
-    width: 95%;
+    width: 100%;
+    margin-left: -3%;
   }
 }
 .top img {
@@ -78,6 +104,7 @@
   padding: 10px;
   margin-top: 10px;
   text-align: right;
+  margin-bottom: 25px;
 }
 @media (max-width: 1300px) {
   .top-weather {
@@ -88,8 +115,6 @@
 }
 .bottom-weather {
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
 }
 @media (max-width: 1300px) {
   .bottom-weather {
@@ -123,19 +148,24 @@
   }
 }
 .city {
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 600;
   line-height: 1;
   margin: 0;
 }
+@media (max-width: 1300px) {
+  .city {
+    font-size: 24px;
+  }
+}
 .description-top {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
   margin: 0;
   padding-bottom: 8px;
 }
 .weather-icon {
-  width: 40px;
+  width: 50px;
   margin-right: 10px;
   border-radius: 10px;
 }
@@ -181,7 +211,8 @@
 }
 @media (max-width: 600px) {
   .forecast {
-    width: 95%;
+    width: 100%;
+    margin-left: -3%;
   }
 }
 .forecast-bottom {
@@ -191,6 +222,7 @@
   padding: 5px 10px;
   border-radius: 5px;
   margin-left: -10px;
+  width: 110px;
 }
 @media (max-width: 1300px) {
   .forecast-bottom {
@@ -202,6 +234,7 @@
     margin-right: -10px;
     padding-right: 20px;
     margin-bottom: 8px;
+    width: auto;
   }
 }
 .hours {
@@ -237,7 +270,7 @@
 .day {
   font-weight: 600;
   font-size: 20px;
-  width: 112px;
+  width: 165.5px;
 }
 @media (max-width: 1300px) {
   .day {
@@ -280,6 +313,7 @@
 }
 .wind-icon {
   font-size: 24px;
+  margin-bottom: 5px;
 }
 .spacing {
   line-height: 1.8;
