@@ -44,6 +44,14 @@ const options = [
     value: "45.174227 23.077664",
     label: "Plesa Peak, GJ",
   },
+  {
+    value: "45.244790 23.016945",
+    label: "Arcanu Peak, GJ",
+  },
+  {
+    value: "45.988007 23.593869",
+    label: "Rapa Rosie, AB",
+  },
 ];
 
 const SearchLocation = ({ onSearchChange }) => {

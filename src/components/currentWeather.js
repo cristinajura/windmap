@@ -50,41 +50,39 @@ const CurrentWeather = ({ data }) => {
                 <span>Wind direction</span>
                 <span>
                   <SortDownIcon rotate={data.wind.deg} className="wind-icon" />
-                  <strong>
-                    {data.wind.deg < 11
-                      ? "N"
-                      : data.wind.deg < 34
-                      ? "NNE"
-                      : data.wind.deg < 56
-                      ? "NE"
-                      : data.wind.deg < 79
-                      ? "ENE"
-                      : data.wind.deg < 101
-                      ? "E"
-                      : data.wind.deg < 124
-                      ? "ESE"
-                      : data.wind.deg < 146
-                      ? "SE"
-                      : data.wind.deg < 169
-                      ? "SSE"
-                      : data.wind.deg < 191
-                      ? "S"
-                      : data.wind.deg < 214
-                      ? "SSW"
-                      : data.wind.deg < 236
-                      ? "SW"
-                      : data.wind.deg < 259
-                      ? "WSW"
-                      : data.wind.deg < 281
-                      ? "W"
-                      : data.wind.deg < 304
-                      ? "WNW"
-                      : data.wind.deg < 326
-                      ? "NW"
-                      : data.wind.deg < 349
-                      ? "NNW"
-                      : "N"}
-                  </strong>
+                  {data.wind.deg < 11
+                    ? "N"
+                    : data.wind.deg < 34
+                    ? "NNE"
+                    : data.wind.deg < 56
+                    ? "NE"
+                    : data.wind.deg < 79
+                    ? "ENE"
+                    : data.wind.deg < 101
+                    ? "E"
+                    : data.wind.deg < 124
+                    ? "ESE"
+                    : data.wind.deg < 146
+                    ? "SE"
+                    : data.wind.deg < 169
+                    ? "SSE"
+                    : data.wind.deg < 191
+                    ? "S"
+                    : data.wind.deg < 214
+                    ? "SSW"
+                    : data.wind.deg < 236
+                    ? "SW"
+                    : data.wind.deg < 259
+                    ? "WSW"
+                    : data.wind.deg < 281
+                    ? "W"
+                    : data.wind.deg < 304
+                    ? "WNW"
+                    : data.wind.deg < 326
+                    ? "NW"
+                    : data.wind.deg < 349
+                    ? "NNW"
+                    : "N"}
                 </span>
               </div>
               <div className="row">
@@ -127,7 +125,13 @@ const CurrentWeather = ({ data }) => {
                 <span>
                   Precipitation <small>(mm/1h)</small>
                 </span>
-                <span>{data.rain ? data.rain[`1h`] : "0"}</span>
+                <span>
+                  {data.rain
+                    ? data.rain[`1h`]
+                    : data.snow
+                    ? data.snow[`1h`]
+                    : "0"}
+                </span>
               </div>
             </div>
           </div>
