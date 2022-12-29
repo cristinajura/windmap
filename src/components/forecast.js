@@ -46,7 +46,7 @@ const Forecast = ({ data }) => {
   const hourInDay = new Date().getHours();
   const currHour =
     hourInDay < 2
-      ? HOURS.slice(0)
+      ? HOURS
       : hourInDay < 5
       ? HOURS.slice(1)
       : hourInDay < 8
@@ -59,7 +59,9 @@ const Forecast = ({ data }) => {
       ? HOURS.slice(5)
       : hourInDay < 20
       ? HOURS.slice(6)
-      : HOURS.slice(7);
+      : hourInDay < 23
+      ? HOURS.slice(7)
+      : HOURS;
   const currHourLength = currHour.length;
 
   return (
@@ -73,8 +75,14 @@ const Forecast = ({ data }) => {
               justifyContent: "space-between",
             }}
           >
-            <div className="day">
-              {currHour[0] !== "00:00" ? "Today" : "Tomorrow"}
+            <div className="dayDate">
+              <div className="day">
+                {currHour[0] !== "00:00" ||
+                (currHour[0] === "00:00" && hourInDay < 2)
+                  ? "Today"
+                  : "Tomorrow"}
+              </div>
+              <div>{data.list[0].dt_txt.slice(0, 10)}</div>
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide}>
@@ -167,12 +175,16 @@ const Forecast = ({ data }) => {
                     <div>
                       {item.wind.speed * 3.6 >= 10
                         ? (item.wind.speed * 3.6).toPrecision(3)
+                        : item.wind.speed * 3.6 < 1
+                        ? (item.wind.speed * 3.6).toPrecision(1)
                         : (item.wind.speed * 3.6).toPrecision(2)}
                     </div>
                     <div>
                       -{" "}
                       {item.wind.gust * 3.6 >= 10
                         ? (item.wind.gust * 3.6).toPrecision(3)
+                        : item.wind.gust * 3.6 < 1
+                        ? (item.wind.gust * 3.6).toPrecision(1)
                         : (item.wind.gust * 3.6).toPrecision(2)}{" "}
                       km/h
                     </div>
@@ -219,8 +231,14 @@ const Forecast = ({ data }) => {
               justifyContent: "space-between",
             }}
           >
-            <div className="day">
-              {currHour[0] !== "00:00" ? "Tomorrow" : forecastDays[2]}
+            <div className="dayDate">
+              <div className="day">
+                {currHour[0] !== "00:00" ||
+                (currHour[0] === "00:00" && hourInDay < 2)
+                  ? "Tomorrow"
+                  : forecastDays[2]}
+              </div>
+              <div>{data.list[currHourLength].dt_txt.slice(0, 10)}</div>
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide1}>
@@ -315,12 +333,16 @@ const Forecast = ({ data }) => {
                       <div>
                         {item.wind.speed * 3.6 >= 10
                           ? (item.wind.speed * 3.6).toPrecision(3)
+                          : item.wind.speed * 3.6 < 1
+                          ? (item.wind.speed * 3.6).toPrecision(1)
                           : (item.wind.speed * 3.6).toPrecision(2)}
                       </div>
                       <div>
                         -{" "}
                         {item.wind.gust * 3.6 >= 10
                           ? (item.wind.gust * 3.6).toPrecision(3)
+                          : item.wind.gust * 3.6 < 1
+                          ? (item.wind.gust * 3.6).toPrecision(1)
                           : (item.wind.gust * 3.6).toPrecision(2)}{" "}
                         km/h
                       </div>
@@ -367,7 +389,14 @@ const Forecast = ({ data }) => {
               justifyContent: "space-between",
             }}
           >
-            <div className="day">{forecastDays[2]}</div>
+            <div className="dayDate">
+              <div className="day">
+                {currHour[0] === "00:00" && hourInDay === 23
+                  ? forecastDays[3]
+                  : forecastDays[2]}
+              </div>
+              <div>{data.list[currHourLength + 8].dt_txt.slice(0, 10)}</div>
+            </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide2}>
                 <TextDetails />
@@ -461,12 +490,16 @@ const Forecast = ({ data }) => {
                       <div>
                         {item.wind.speed * 3.6 >= 10
                           ? (item.wind.speed * 3.6).toPrecision(3)
+                          : item.wind.speed * 3.6 < 1
+                          ? (item.wind.speed * 3.6).toPrecision(1)
                           : (item.wind.speed * 3.6).toPrecision(2)}
                       </div>
                       <div>
                         -{" "}
                         {item.wind.gust * 3.6 >= 10
                           ? (item.wind.gust * 3.6).toPrecision(3)
+                          : item.wind.gust * 3.6 < 1
+                          ? (item.wind.gust * 3.6).toPrecision(1)
                           : (item.wind.gust * 3.6).toPrecision(2)}{" "}
                         km/h
                       </div>
@@ -513,7 +546,14 @@ const Forecast = ({ data }) => {
               justifyContent: "space-between",
             }}
           >
-            <div className="day">{forecastDays[3]}</div>
+            <div className="dayDate">
+              <div className="day">
+                {currHour[0] === "00:00" && hourInDay === 23
+                  ? forecastDays[4]
+                  : forecastDays[3]}
+              </div>
+              <div>{data.list[currHourLength + 16].dt_txt.slice(0, 10)}</div>
+            </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide3}>
                 <TextDetails />
@@ -607,12 +647,16 @@ const Forecast = ({ data }) => {
                       <div>
                         {item.wind.speed * 3.6 >= 10
                           ? (item.wind.speed * 3.6).toPrecision(3)
+                          : item.wind.speed * 3.6 < 1
+                          ? (item.wind.speed * 3.6).toPrecision(1)
                           : (item.wind.speed * 3.6).toPrecision(2)}
                       </div>
                       <div>
                         -{" "}
                         {item.wind.gust * 3.6 >= 10
                           ? (item.wind.gust * 3.6).toPrecision(3)
+                          : item.wind.gust * 3.6 < 1
+                          ? (item.wind.gust * 3.6).toPrecision(1)
                           : (item.wind.gust * 3.6).toPrecision(2)}{" "}
                         km/h
                       </div>
@@ -655,7 +699,7 @@ const Forecast = ({ data }) => {
 
 const TextDetails = () => {
   return (
-    <div>
+    <div style={{ width: "200px" }}>
       <div>Temperature</div>
       <div>
         <div>Temperature felt</div>

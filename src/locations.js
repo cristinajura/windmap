@@ -12,6 +12,10 @@ export const options = [
     label: "Retezat Peak, HD",
   },
   {
+    value: "45.859838 23.042844",
+    label: "Magura Uroiului, HD",
+  },
+  {
     value: "45.554008 22.973854",
     label: "Ciopeia - hill, HD",
   },
@@ -22,10 +26,6 @@ export const options = [
   {
     value: "45.734482 23.037333",
     label: "Calan - hill, HD",
-  },
-  {
-    value: "45.859838 23.042844",
-    label: "Magura Uroiului, HD",
   },
   {
     value: "45.388145 23.491146",
@@ -46,5 +46,33 @@ export const options = [
   {
     value: "45.988007 23.593869",
     label: "Rapa Rosie, AB",
+  },
+  {
+    value: "46.454343 23.537259",
+    label: "Rimetea, AB",
+  },
+  {
+    value: "46.528938 23.522260",
+    label: "Iara, CJ",
+  },
+  {
+    value: "46.613307 23.439002",
+    label: "Liteni, CJ",
+  },
+  {
+    value: "46.587136 23.686606",
+    label: "Petresti, CJ",
+  },
+  {
+    value: "45.700859 23.976794",
+    label: "Valare, SB",
+  },
+  {
+    value: "45.669151 24.164310",
+    label: "Tocile, SB",
+  },
+  {
+    value: "46.265842 21.655047",
+    label: "Siria, AR",
   },
 ];

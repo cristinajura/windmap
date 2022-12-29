@@ -5,11 +5,15 @@ const CurrentWeather = ({ data }) => {
   const wind =
     data.wind.speed * 3.6 >= 10
       ? (data.wind.speed * 3.6).toPrecision(3)
+      : data.wind.speed * 3.6 < 1
+      ? (data.wind.speed * 3.6).toPrecision(1)
       : (data.wind.speed * 3.6).toPrecision(2);
 
   const gust =
     data.wind.gust * 3.6 >= 10
       ? (data.wind.gust * 3.6).toPrecision(3)
+      : data.wind.gust * 3.6 < 1
+      ? (data.wind.gust * 3.6).toPrecision(1)
       : (data.wind.gust * 3.6).toPrecision(2);
 
   return (
@@ -107,7 +111,10 @@ const CurrentWeather = ({ data }) => {
             <div className="datas2">
               <div className="row">
                 <span>Temperature</span>
-                <span>{Math.floor(data.main.temp)}°C</span>
+                <span>
+                  {Math.floor(data.main.temp)}
+                  °C
+                </span>
               </div>
               <div className="row">
                 <span>Temperature felt</span>
