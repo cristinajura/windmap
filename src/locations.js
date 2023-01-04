@@ -17,15 +17,15 @@ export const options = [
   },
   {
     value: "45.554008 22.973854",
-    label: "Ciopeia - hill, HD",
+    label: "Ciopeia, HD",
   },
   {
     value: "45.626761 23.036450",
-    label: "Gantaga - hill, HD",
+    label: "Gantaga, HD",
   },
   {
     value: "45.734482 23.037333",
-    label: "Calan - hill, HD",
+    label: "Calan, HD",
   },
   {
     value: "45.388145 23.491146",
@@ -72,7 +72,7 @@ export const options = [
     label: "Tocile, SB",
   },
   {
-    value: "46.265842 21.655047",
+    value: "46.266570 21.658238",
     label: "Siria, AR",
   },
 ];

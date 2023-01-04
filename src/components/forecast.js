@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import SortDownIcon from "@rsuite/icons/SortDown";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { RxDoubleArrowRight, RxDoubleArrowLeft } from "react-icons/rx";
 
 const WEEK_DAY = [
   "Monday",
@@ -191,7 +192,6 @@ const Forecast = ({ data }) => {
                   </div>
                 </div>
               </div>
-
               <div className={showOrHide}>
                 <div className="forecast-bottom">
                   {isTabletOrPhone ? <TextDetails /> : <></>}
@@ -219,6 +219,18 @@ const Forecast = ({ data }) => {
               </div>
             </div>
           ))}
+          <div className="line"></div>
+          {show && isTabletOrPhone ? (
+            <div className="arrow">
+              <RxDoubleArrowLeft />
+            </div>
+          ) : isTabletOrPhone ? (
+            <div className="arrow">
+              <RxDoubleArrowRight />
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
 
@@ -377,6 +389,18 @@ const Forecast = ({ data }) => {
                 </div>
               </div>
             ))}
+          <div className="line"></div>
+          {show1 && isTabletOrPhone ? (
+            <div className="arrow">
+              <RxDoubleArrowLeft />
+            </div>
+          ) : isTabletOrPhone ? (
+            <div className="arrow">
+              <RxDoubleArrowRight />
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
 
@@ -534,6 +558,18 @@ const Forecast = ({ data }) => {
                 </div>
               </div>
             ))}
+          <div className="line"></div>
+          {show2 && isTabletOrPhone ? (
+            <div className="arrow">
+              <RxDoubleArrowLeft />
+            </div>
+          ) : isTabletOrPhone ? (
+            <div className="arrow">
+              <RxDoubleArrowRight />
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
 
@@ -691,6 +727,18 @@ const Forecast = ({ data }) => {
                 </div>
               </div>
             ))}
+          <div className="line"></div>
+          {show3 && isTabletOrPhone ? (
+            <div className="arrow">
+              <RxDoubleArrowLeft />
+            </div>
+          ) : isTabletOrPhone ? (
+            <div className="arrow">
+              <RxDoubleArrowRight />
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>
