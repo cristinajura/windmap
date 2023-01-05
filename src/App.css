@@ -343,7 +343,7 @@
 .map {
   margin: 30px auto 30px auto;
   height: 700px;
-  width: 100%;
+  width: 90%;
   padding: 14px;
   box-shadow: 3px 4px 15px rgb(163, 164, 167);
   cursor: pointer;
@@ -361,4 +361,26 @@
     margin-left: -3%;
     height: 500px;
   }
+}
+
+.detectLocation {
+  position: relative;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  z-index: 800;
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgb(143, 142, 142);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+
+.gpsIcon {
+  font-size: 28px;
+  color: rgb(116, 115, 115);
+}
+.gpsIcon:hover {
+  color: rgb(60, 22, 228);
 }
