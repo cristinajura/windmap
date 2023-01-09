@@ -34,7 +34,7 @@ const Search = ({ onSearchChange }) => {
           <div className="palceholderIcon">
             <FaSearch />
           </div>
-          <div className="placeholderText">Search for city...</div>
+          <div className="placeholderText">Search for a city...</div>
         </div>
       }
       debounceTimeout={600}

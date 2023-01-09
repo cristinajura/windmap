@@ -16,7 +16,7 @@
 }
 @media (max-width: 1300px) {
   .search {
-    width: 75%;
+    width: 70%;
     margin: 10px auto;
   }
 }
@@ -44,14 +44,15 @@
 @media (max-width: 1300px) {
   .sau {
     margin: auto;
+    font-size: 14px;
   }
 }
 .placeholderText {
   margin-left: 30px;
-  font-weight: bold;
+  color: rgb(63, 64, 66);
 }
 .palceholderIcon {
-  margin-bottom: -20px;
+  margin-bottom: -24px;
 }
 
 .top {
@@ -59,15 +60,14 @@
   justify-content: space-between;
   background: linear-gradient(#06344e, #054c75, #011738);
   box-shadow: 3px 4px 15px rgb(63, 64, 66);
-  margin: 20px auto 10px auto;
+  margin: 30px auto 10px auto;
   border-radius: 5px;
-  max-width: 1100px;
   padding: 5px;
 }
 @media (max-width: 1300px) {
   .top {
     flex-direction: column;
-    width: 75%;
+    width: 80%;
     padding: 10px;
   }
 }
@@ -79,15 +79,15 @@
   }
 }
 .top img {
-  max-width: 550px;
-  max-height: 300px;
-  border-radius: 3px;
+  max-width: 600px;
+  max-height: 400px;
+  border-radius: 5px;
 }
 @media (max-width: 1300px) {
   .top img {
     max-width: 1300px;
     max-height: 550px;
-    margin: -5px -5px 0px -5px;
+    margin: -6px;
   }
 }
 .weather {
@@ -106,23 +106,25 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   text-align: right;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
 }
 @media (max-width: 1300px) {
   .top-weather {
     text-align: left;
-    margin-top: 0px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 0px;
   }
 }
 .bottom-weather {
   display: flex;
+  margin-top: 10px;
 }
 @media (max-width: 1300px) {
   .bottom-weather {
     flex-direction: column;
+    margin-bottom: 10px;
   }
 }
 .datas1 {
@@ -195,8 +197,8 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin: 10px auto 10px auto;
-  padding: 10px 10px 10px 20px;
+  margin: 10px auto 10px -10px;
+  padding: 10px;
   border-radius: 5px;
   line-height: 1.8;
   background: linear-gradient(#06657d, #194270, #071a37);
@@ -206,10 +208,10 @@
 }
 @media (max-width: 1300px) {
   .forecast {
+    margin: 10px auto 10px auto;
     flex-direction: column;
-    width: 75%;
+    width: 80%;
     background: linear-gradient(0.25turn, #06657d, #194270, #071a37);
-    padding: 10px;
   }
 }
 @media (max-width: 600px) {
@@ -340,26 +342,66 @@
   margin-top: 5px;
 }
 
+.windyContainer {
+  margin: 20px auto 20px auto;
+  width: 91%;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 1300px) {
+  .windyContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .windyContainer {
+    width: 100%;
+  }
+}
+.windymap {
+  height: 450px;
+  width: 46%;
+  padding: 0px 10px 30px 10px;
+  box-shadow: 0 0 15px 1px rgb(180, 180, 180);
+  border-radius: 5px;
+  cursor: pointer;
+}
+@media (max-width: 1300px) {
+  .windymap {
+    margin: 10px auto 10px auto;
+    width: 80%;
+    height: 400px;
+  }
+}
+@media (max-width: 600px) {
+  .windymap {
+    width: 100%;
+    margin-left: -3%;
+    height: 300px;
+  }
+}
+
 .map {
   margin: 30px auto 30px auto;
   height: 700px;
   width: 90%;
-  padding: 14px;
-  box-shadow: 3px 4px 15px rgb(163, 164, 167);
+  padding: 10px;
+  box-shadow: 0 0 15px 1px rgb(180, 180, 180);
+  border-radius: 5px;
   cursor: pointer;
 }
 @media (max-width: 1300px) {
   .map {
-    width: 75%;
-    padding: 10px;
-    height: 600px;
+    width: 80%;
+    height: 500px;
   }
 }
 @media (max-width: 600px) {
   .map {
     width: 100%;
     margin-left: -3%;
-    height: 500px;
+    height: 450px;
   }
 }
 
@@ -382,5 +424,5 @@
   color: rgb(116, 115, 115);
 }
 .gpsIcon:hover {
-  color: rgb(60, 22, 228);
+  color: rgb(22, 84, 228);
 }
