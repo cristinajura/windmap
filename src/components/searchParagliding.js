@@ -5,10 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import { paraglidingSpots } from "../paragliding";
 
 const SearchParagliding = ({ onSearchChange }) => {
-  const [searchLocation, setSearchLocation] = React.useState(null);
-
   const handleChange = (selectSpot) => {
-    setSearchLocation(selectSpot);
     onSearchChange(selectSpot);
   };
 

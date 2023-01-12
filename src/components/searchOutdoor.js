@@ -5,10 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import { outdoorLocations } from "../outdoor";
 
 const SearchOutdoor = ({ onSearchChange }) => {
-  const [searchLocation, setSearchLocation] = React.useState(null);
-
   const handleChange = (selectSpot) => {
-    setSearchLocation(selectSpot);
     onSearchChange(selectSpot);
   };
 

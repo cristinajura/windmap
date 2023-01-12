@@ -28,7 +28,11 @@ export const paraglidingSpots = [
     label: "Calan, HD",
   },
   {
-    value: "45.388145 23.491146",
+    value: "45.060767 22.376446",
+    label: "Cornereva, CS",
+  },
+  {
+    value: "45.387891 23.490912",
     label: "◭ Parangul Mic, HD",
   },
   {
@@ -44,11 +48,7 @@ export const paraglidingSpots = [
     label: "◭ Arcanu, GJ",
   },
   {
-    value: "45.373562 22.475669",
-    label: "◭ Muntele Mic, CS",
-  },
-  {
-    value: "45.988007 23.593869",
+    value: "45.987977 23.593852",
     label: "Rapa Rosie, AB",
   },
   {
@@ -66,6 +66,10 @@ export const paraglidingSpots = [
   {
     value: "46.587136 23.686606",
     label: "Petresti, CJ",
+  },
+  {
+    value: "45.604598 24.619251",
+    label: "Balea, Fagaras, SB",
   },
   {
     value: "45.700859 23.976794",
@@ -86,6 +90,10 @@ export const paraglidingSpots = [
   {
     value: "45.567970 25.565533",
     label: "◭ Postavaru, BR",
+  },
+  {
+    value: "45.425573 25.486500",
+    label: "◭ Costila, Bucegi, PH",
   },
   {
     value: "47.732890 23.676731",

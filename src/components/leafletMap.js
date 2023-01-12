@@ -1,15 +1,8 @@
-import React from "react";
-import {
-  MapContainer,
-  Marker,
-  Tooltip,
-  TileLayer,
-  useMap,
-  useMapEvents,
-} from "react-leaflet";
+import React, { useState } from "react";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { BiCurrentLocation } from "react-icons/bi";
+import CurrentLocation from "./currentLocation";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -25,46 +18,40 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
-const LocationMarker = (props) => {
-  const [position, setPosition] = React.useState(null);
-
-  const btn = useMapEvents({
-    click() {
-      btn.locate();
-    },
-    locationfound(e) {
-      setPosition(e.latlng);
-      btn.flyTo(e.latlng, btn.getZoom());
-    },
-  });
-
-  return position === null ? null : (
-    <Marker position={position}>
-      <Tooltip>
-        GPS: {props.marker[0]}, {props.marker[1]}
-      </Tooltip>
-    </Marker>
-  );
-};
-
 const LeafletMap = (props) => {
+  const [mapStyle, setMapStyle] = useState(false);
+
   return (
     <div className="map">
       <MapContainer
         center={props.marker}
         zoom={13}
-        scrollWheelZoom={true}
+        minZoom={2}
+        maxZoom={17}
+        scrollWheelZoom={false}
         style={{ height: "100%", zIndex: "10" }}
       >
         <ChangeView center={props.marker} zoom={13} />
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker position={props.marker}>
-          <Tooltip>{props.popup}</Tooltip>
+          <Popup>{props.popup}</Popup>
         </Marker>
-        <button className="detectLocation">
-          <BiCurrentLocation className="gpsIcon" />
-          <LocationMarker marker={props.marker} />
-        </button>
+        <button
+          style={
+            mapStyle
+              ? { backgroundImage: "url(/topoMap.jpg)" }
+              : { backgroundImage: "url(/streetMap.jpg)" }
+          }
+          className="changeMap"
+          onClick={() => setMapStyle(!mapStyle)}
+        ></button>
+        <TileLayer
+          url={
+            mapStyle
+              ? "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              : "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+          }
+        />
+        <CurrentLocation marker={props.marker} />
       </MapContainer>
     </div>
   );
