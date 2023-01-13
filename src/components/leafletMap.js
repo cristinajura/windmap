@@ -44,8 +44,8 @@ const LeafletMap = (props) => {
         <button
           style={
             mapStyle
-              ? { backgroundImage: "url(/topoMap.jpg)" }
-              : { backgroundImage: "url(/streetMap.jpg)" }
+              ? { backgroundImage: "url(/topoMap.png)" }
+              : { backgroundImage: "url(/streetMap.png)" }
           }
           className="changeMap"
           onClick={() => setMapStyle(!mapStyle)}

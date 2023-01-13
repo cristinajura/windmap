@@ -4,6 +4,7 @@ import "../App.css";
 import { useMapEvents, Marker, Popup } from "react-leaflet";
 import { BiCurrentLocation } from "react-icons/bi";
 import { ActionIcon } from "@mantine/core";
+import { BsWhatsapp } from "react-icons/bs";
 
 const ControlClasses = {
   bottomleft: "leaflet-bottom leaflet-left",
@@ -41,6 +42,8 @@ const CurrentLocation = (props) => {
     },
   });
 
+  let url = `https://api.whatsapp.com/send?text=GPS: ${props.marker[0]}, ${props.marker[1]}`;
+
   return (
     <LeafletControl position={"topright"}>
       <ActionIcon
@@ -59,6 +62,11 @@ const CurrentLocation = (props) => {
         <Marker position={position}>
           <Popup>
             GPS: {props.marker[0]}, {props.marker[1]}
+            <br />
+            Share current location: {"  "}
+            <a href={url} target="blank" style={{ color: "rgb(2, 145, 2)" }}>
+              <BsWhatsapp />
+            </a>
           </Popup>
         </Marker>
       )}

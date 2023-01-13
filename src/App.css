@@ -373,8 +373,8 @@
 }
 
 .map {
-  margin: 30px auto 5px auto;
-  height: 700px;
+  margin: 35px auto 5px auto;
+  height: 600px;
   width: 100%;
   padding: 10px;
   box-shadow: 0 0 15px 1px rgb(180, 180, 180);
@@ -391,16 +391,22 @@
   .map {
     width: 102%;
     margin-left: -3%;
-    height: 450px;
+    height: 400px;
     padding: 5px;
   }
 }
+/* .topoMapImg {
+  background-image: url("/topoMap.png");
+}
+.streetMapImg {
+  background-image: url("/streetMap.png");
+} */
 
 .changeMap {
   position: relative;
   float: left;
   bottom: 0;
-  margin-top: 625px;
+  margin-top: 525px;
   margin-left: 5px;
   z-index: 800;
   width: 70px;
@@ -422,7 +428,7 @@
 }
 @media (max-width: 600px) {
   .changeMap {
-    margin-top: 385px;
+    margin-top: 335px;
   }
 }
 
@@ -436,6 +442,7 @@
   cursor: pointer;
   margin-top: 8px;
   margin-right: 8px;
+  border-radius: 3px;
 }
 .gpsIcon:hover {
   color: rgb(48, 83, 164);
@@ -455,8 +462,8 @@
     width: 100%;
   }
 }
-.shareLocationText a {
-  color: rgb(1, 146, 11);
+.whatsapp {
+  color: rgb(22, 22, 252);
 }
 
 .windymap {
@@ -478,7 +485,7 @@
   .windymap {
     width: 102%;
     margin-left: -3%;
-    height: 450px;
+    height: 400px;
     padding: 4px 5px 30px 5px;
   }
 }
