@@ -7,7 +7,7 @@ export const ShareLocation = (props) => {
 
   return (
     <div className="shareLocationText">
-      <div>
+      <div style={{ marginBottom: "10px" }}>
         The location marker is placed on {props.popup}, GPS: {props.marker[0]},{" "}
         {props.marker[1]}. Share location: {"  "}
         <span>
@@ -22,10 +22,10 @@ export const ShareLocation = (props) => {
 
 export const AddLocation = () => {
   return (
-    <div className="shareLocationText" style={{ marginTop: "50px" }}>
+    <div className="shareLocationText">
       <div>
-        Do you need a new location on 'paragliding spot' or 'outdoor location'?
-        Just let me know:{" "}
+        Do you need a new location on 'Search paragliding spot' or 'Search
+        outdoor location'? Just let me know:{" "}
         <span style={{ color: "rgb(22, 22, 202)", fontSize: "20px" }}>
           <a href="mailto:cristina.jura16@gmail.com" target="blank">
             <TbBrandTelegram />
