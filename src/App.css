@@ -373,7 +373,7 @@
 }
 
 .map {
-  margin: 24px auto 30px auto;
+  margin: 30px auto 5px auto;
   height: 700px;
   width: 100%;
   padding: 10px;
@@ -439,6 +439,24 @@
 }
 .gpsIcon:hover {
   color: rgb(48, 83, 164);
+}
+
+.shareLocationText {
+  margin-bottom: 50px;
+}
+@media (max-width: 1300px) {
+  .shareLocationText {
+    margin: 0 auto 50px auto;
+    width: 80%;
+  }
+}
+@media (max-width: 600px) {
+  .shareLocationText {
+    width: 100%;
+  }
+}
+.shareLocationText a {
+  color: rgb(1, 146, 11);
 }
 
 .windymap {

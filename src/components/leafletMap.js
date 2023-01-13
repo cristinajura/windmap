@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  Marker,
+  TileLayer,
+  useMap,
+  Tooltip,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import CurrentLocation from "./currentLocation";
@@ -33,13 +39,7 @@ const LeafletMap = (props) => {
       >
         <ChangeView center={props.marker} zoom={12} />
         <Marker position={props.marker}>
-          <Popup>
-            <div style={{ lineHeight: "1.8" }}>
-              {props.popup}
-              <br></br>
-              GPS: {props.marker[0]}, {props.marker[1]}
-            </div>
-          </Popup>
+          <Tooltip>{props.popup}</Tooltip>
         </Marker>
         <button
           style={
