@@ -2,7 +2,7 @@ import "../App.css";
 import { BsWhatsapp } from "react-icons/bs";
 import { TbBrandTelegram } from "react-icons/tb";
 
-const ShareLocation = (props) => {
+export const ShareLocation = (props) => {
   let url = `https://api.whatsapp.com/send?text=${props.popup}, GPS: ${props.marker[0]}, ${props.marker[1]}`;
 
   return (
@@ -16,7 +16,13 @@ const ShareLocation = (props) => {
           </a>
         </span>
       </div>
-      <br />
+    </div>
+  );
+};
+
+export const AddLocation = () => {
+  return (
+    <div className="shareLocationText" style={{ marginTop: "50px" }}>
       <div>
         Do you need a new location on 'paragliding spot' or 'outdoor location'?
         Just let me know:{" "}
@@ -36,8 +42,7 @@ const ShareLocation = (props) => {
           </a>
         </span>
       </div>
+      <div className="bottom">@2023 windmap</div>
     </div>
   );
 };
-
-export default ShareLocation;

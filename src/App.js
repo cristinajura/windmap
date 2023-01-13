@@ -9,7 +9,7 @@ import LeafletMap from "./components/leafletMap";
 import WindyMap from "./components/windyMap";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import ShareLocation from "./components/shareLocation";
+import { ShareLocation, AddLocation } from "./components/shareLocation";
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -72,6 +72,7 @@ function App() {
       <LeafletMap marker={marker} popup={popup} />
       <ShareLocation marker={marker} popup={popup} />
       <WindyMap />
+      <AddLocation />
     </div>
   );
 }
