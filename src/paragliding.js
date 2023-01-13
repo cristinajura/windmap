@@ -99,4 +99,20 @@ export const paraglidingSpots = [
     value: "47.732890 23.676731",
     label: "◭ Ignis, MM",
   },
+  {
+    value: "47.657271 23.786939",
+    label: "◭ Mogosa, MM",
+  },
+  {
+    value: "46.369501 25.834362",
+    label: "Sumuleu Ciuc, HR",
+  },
+  {
+    value: "46.577381 25.974377",
+    label: "Sie, HR",
+  },
+  {
+    value: "45.293299 25.209999",
+    label: "Priseaca, AG",
+  },
 ];

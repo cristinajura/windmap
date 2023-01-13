@@ -51,9 +51,9 @@ const CurrentLocation = (props) => {
         loading={loading}
         variant={"transparent"}
       >
-        <button className="detectLocation">
+        <div>
           <BiCurrentLocation className="gpsIcon" />
-        </button>
+        </div>
       </ActionIcon>
       {position === null ? null : (
         <Marker position={position}>

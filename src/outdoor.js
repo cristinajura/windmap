@@ -128,6 +128,18 @@ export const outdoorLocations = [
     label: "◭ Caraiman, Bucegi, PH",
   },
   {
+    value: "45.521465 25.926586",
+    label: "◭ Ciucas, BR",
+  },
+  {
+    value: "45.358742 26.712084",
+    label: "Vulcanii Noroiosi, BZ",
+  },
+  {
+    value: "45.424419 26.435452",
+    label: "Schituri Rupestre, Nucu, BZ",
+  },
+  {
     value: "46.564988 23.680269",
     label: "Cheile Turzii, CJ",
   },
@@ -142,5 +154,29 @@ export const outdoorLocations = [
   {
     value: "46.295181 23.467218",
     label: "Cheile Rametului, AB",
+  },
+  {
+    value: "47.702626 23.842475",
+    label: "Creasta Cocosului, MM",
+  },
+  {
+    value: "47.596371 24.635755",
+    label: "◭ Pietrosul Rodnei, Rodnei, MM",
+  },
+  {
+    value: "47.525244 24.883946",
+    label: "◭ Ineu, Rodnei, MM",
+  },
+  {
+    value: "47.434217 25.483887",
+    label: "◭ Giumalau, SV",
+  },
+  {
+    value: "47.453330 25.574939",
+    label: "◭ Rarau, SV",
+  },
+  {
+    value: "46.825154 25.867907",
+    label: "Cheile Bicazului, HR-NT",
   },
 ];

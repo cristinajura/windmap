@@ -25,15 +25,21 @@ const LeafletMap = (props) => {
     <div className="map">
       <MapContainer
         center={props.marker}
-        zoom={13}
+        zoom={12}
         minZoom={2}
-        maxZoom={17}
+        maxZoom={18}
         scrollWheelZoom={false}
         style={{ height: "100%", zIndex: "10" }}
       >
-        <ChangeView center={props.marker} zoom={13} />
+        <ChangeView center={props.marker} zoom={12} />
         <Marker position={props.marker}>
-          <Popup>{props.popup}</Popup>
+          <Popup>
+            <div style={{ lineHeight: "1.8" }}>
+              {props.popup}
+              <br></br>
+              GPS: {props.marker[0]}, {props.marker[1]}
+            </div>
+          </Popup>
         </Marker>
         <button
           style={

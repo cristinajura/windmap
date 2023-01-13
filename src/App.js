@@ -51,7 +51,7 @@ function App() {
     <div className="container">
       <div className="appTitle">
         <div className="title">windmap</div>
-        <img src="/windy.png" alt="logo" style={{ width: "40px" }} />
+        <img src="/windy.png" alt="logo" style={{ width: "45px" }} />
       </div>
       <div className="locations">
         <div className="search" style={{ zIndex: "40" }}>
