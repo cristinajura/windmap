@@ -28,10 +28,6 @@ export const paraglidingSpots = [
     label: "Calan, HD",
   },
   {
-    value: "45.060767 22.376446",
-    label: "Cornereva, CS",
-  },
-  {
     value: "45.387891 23.490912",
     label: "◭ Parangul Mic, HD",
   },
@@ -46,6 +42,10 @@ export const paraglidingSpots = [
   {
     value: "45.244790 23.016945",
     label: "◭ Arcanu, GJ",
+  },
+  {
+    value: "45.060767 22.376446",
+    label: "Cornereva, CS",
   },
   {
     value: "45.987977 23.593852",

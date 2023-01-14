@@ -374,7 +374,7 @@
 
 .map {
   margin: 35px auto 10px auto;
-  height: 600px;
+  height: 700px;
   width: 100%;
   padding: 10px;
   box-shadow: 0 0 15px 1px rgb(180, 180, 180);
@@ -384,14 +384,14 @@
 @media (max-width: 1300px) {
   .map {
     width: 80%;
-    height: 500px;
+    height: 550px;
   }
 }
 @media (max-width: 600px) {
   .map {
     width: 110%;
     margin-left: -5.5%;
-    height: 400px;
+    height: 450px;
     padding: 5px 0px;
   }
 }
@@ -443,7 +443,7 @@
 }
 
 .shareLocationText {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 @media (max-width: 1300px) {
   .shareLocationText {

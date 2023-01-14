@@ -34,7 +34,7 @@ const LeafletMap = (props) => {
         zoom={12}
         minZoom={2}
         maxZoom={18}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
         style={{ height: "100%", zIndex: "10" }}
       >
         <ChangeView center={props.marker} zoom={12} />
