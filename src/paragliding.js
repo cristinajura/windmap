@@ -48,6 +48,10 @@ export const paraglidingSpots = [
     label: "Cornereva, CS",
   },
   {
+    value: "46.266570 21.658238",
+    label: "Siria, AR",
+  },
+  {
     value: "45.987977 23.593852",
     label: "Rapa Rosie, AB",
   },
@@ -78,10 +82,6 @@ export const paraglidingSpots = [
   {
     value: "45.669151 24.164310",
     label: "Tocile, SB",
-  },
-  {
-    value: "46.266570 21.658238",
-    label: "Siria, AR",
   },
   {
     value: "45.589280 25.664081",
