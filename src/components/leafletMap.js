@@ -31,21 +31,21 @@ const LeafletMap = (props) => {
     <div className="map">
       <MapContainer
         center={props.marker}
-        zoom={12}
+        zoom={13}
         minZoom={2}
         maxZoom={18}
         scrollWheelZoom={true}
         style={{ height: "100%", zIndex: "10" }}
       >
-        <ChangeView center={props.marker} zoom={12} />
+        <ChangeView center={props.marker} zoom={13} />
         <Marker position={props.marker}>
           <Tooltip>{props.popup}</Tooltip>
         </Marker>
         <button
           style={
             mapStyle
-              ? { backgroundImage: "url(/topoMap.png)" }
-              : { backgroundImage: "url(/streetMap.png)" }
+              ? { backgroundImage: "url(/streetMap.png)" }
+              : { backgroundImage: "url(/topoMap.png)" }
           }
           className="changeMap"
           onClick={() => setMapStyle(!mapStyle)}
@@ -53,8 +53,8 @@ const LeafletMap = (props) => {
         <TileLayer
           url={
             mapStyle
-              ? "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              : "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+              ? "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+              : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           }
         />
         <CurrentLocation marker={props.marker} />
