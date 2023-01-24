@@ -16,6 +16,13 @@ function App() {
   const [forecast, setForecast] = useState(null);
   const [marker, setMarker] = useState([45.368676, 22.88771]);
   const [popup, setPopup] = useState("Retezat National Park, RO");
+  const [fullScreen, setFullScreen] = useState(false);
+
+  const onClick = () => {
+    setFullScreen(!fullScreen);
+  };
+
+  const fullMap = fullScreen ? "hide" : "";
 
   let isTabletOrPhone = useMediaQuery("(max-width:1300px)");
 
@@ -49,30 +56,41 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <div className="appTitle">
-        <div className="title">windmap</div>
-        <img src="/windy.png" alt="logo" style={{ width: "45px" }} />
-      </div>
-      <div className="locations">
-        <div className="search" style={{ zIndex: "40" }}>
-          <SearchParagliding onSearchChange={handleSearchChange} />
+    <div className={fullScreen ? "" : "container"}>
+      <div className={fullMap}>
+        <div className="appTitle">
+          <div className="title">windmap</div>
+          <img src="/windmap.png" alt="logo" style={{ width: "45px" }} />
         </div>
-        <div className="sau">or</div>
-        <div className="search" style={{ zIndex: "30" }}>
-          <SearchOutdoor onSearchChange={handleSearchChange} />
+        <div className="locations">
+          <div className="search" style={{ zIndex: "40" }}>
+            <SearchParagliding onSearchChange={handleSearchChange} />
+          </div>
+          <div className="sau">or</div>
+          <div className="search" style={{ zIndex: "30" }}>
+            <SearchOutdoor onSearchChange={handleSearchChange} />
+          </div>
+          {isTabletOrPhone ? <div className="sau">or</div> : null}
         </div>
-        {isTabletOrPhone ? <div className="sau">or</div> : null}
+        <div className="search">
+          <Search onSearchChange={handleSearchChange} />
+        </div>
+        <CurrentWeather data={currentWeather} />
+        {forecast && <Forecast data={forecast} />}
       </div>
-      <div className="search">
-        <Search onSearchChange={handleSearchChange} />
+      <div>
+        <LeafletMap
+          marker={marker}
+          popup={popup}
+          fullScreen={fullScreen}
+          onClick={onClick}
+        />
       </div>
-      <CurrentWeather data={currentWeather} />
-      {forecast && <Forecast data={forecast} />}
-      <LeafletMap marker={marker} popup={popup} />
-      <ShareLocation marker={marker} popup={popup} />
-      <WindyMap />
-      <AddLocation />
+      <div className={fullMap}>
+        <ShareLocation marker={marker} popup={popup} />
+        <WindyMap />
+        <AddLocation />
+      </div>
     </div>
   );
 }

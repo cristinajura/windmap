@@ -27,8 +27,10 @@ function ChangeView({ center, zoom }) {
 const LeafletMap = (props) => {
   const [mapStyle, setMapStyle] = useState(false);
 
+  const isFullScreen = props.fullScreen ? "goFullScreen" : "map";
+
   return (
-    <div className="map">
+    <div className={isFullScreen}>
       <MapContainer
         center={props.marker}
         zoom={13}
@@ -47,7 +49,7 @@ const LeafletMap = (props) => {
               ? { backgroundImage: "url(/streetMap.png)" }
               : { backgroundImage: "url(/topoMap.png)" }
           }
-          className="changeMap"
+          className={props.fullScreen ? "fullScreenChangeMap" : "changeMap"}
           onClick={() => setMapStyle(!mapStyle)}
         ></button>
         <TileLayer
@@ -57,7 +59,11 @@ const LeafletMap = (props) => {
               : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           }
         />
-        <CurrentLocation marker={props.marker} />
+        <CurrentLocation
+          marker={props.marker}
+          fullScreen={props.fullScreen}
+          onClick={props.onClick}
+        />
       </MapContainer>
     </div>
   );

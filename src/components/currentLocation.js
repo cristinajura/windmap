@@ -5,6 +5,7 @@ import { useMapEvents, Marker, Popup } from "react-leaflet";
 import { BiCurrentLocation } from "react-icons/bi";
 import { ActionIcon } from "@mantine/core";
 import { BsWhatsapp } from "react-icons/bs";
+import { BiFullscreen, BiExitFullscreen } from "react-icons/bi";
 
 const ControlClasses = {
   bottomleft: "leaflet-bottom leaflet-left",
@@ -34,6 +35,8 @@ const CurrentLocation = (props) => {
   const [loading, setLoading] = useState(false);
   const [position, setPosition] = useState(null);
 
+  console.log("props.fullScreen", props.fullScreen);
+
   const map = useMapEvents({
     locationfound(e) {
       map.flyTo(e.latlng);
@@ -45,32 +48,43 @@ const CurrentLocation = (props) => {
   let url = `https://api.whatsapp.com/send?text=GPS: ${props.marker[0]}, ${props.marker[1]}`;
 
   return (
-    <LeafletControl position={"topright"}>
-      <ActionIcon
-        onClick={() => {
-          setLoading(true);
-          map.locate();
-        }}
-        loading={loading}
-        variant={"transparent"}
-      >
-        <div>
-          <BiCurrentLocation className="gpsIcon" />
+    <div>
+      <LeafletControl position={"bottomright"}>
+        <ActionIcon
+          onClick={() => {
+            setLoading(true);
+            map.locate();
+          }}
+          loading={loading}
+          variant={"transparent"}
+        >
+          <div>
+            <BiCurrentLocation className="gpsIcon" />
+          </div>
+        </ActionIcon>
+        {position === null ? null : (
+          <Marker position={position}>
+            <Popup>
+              GPS: {props.marker[0]}, {props.marker[1]}
+              <br />
+              Share current location: {"  "}
+              <a href={url} target="blank" style={{ color: "rgb(2, 145, 2)" }}>
+                <BsWhatsapp />
+              </a>
+            </Popup>
+          </Marker>
+        )}
+      </LeafletControl>
+      <LeafletControl position={"topright"}>
+        <div onClick={props.onClick}>
+          {props.fullScreen ? (
+            <BiExitFullscreen className="fullScreenIcon" />
+          ) : (
+            <BiFullscreen className="fullScreenIcon" />
+          )}
         </div>
-      </ActionIcon>
-      {position === null ? null : (
-        <Marker position={position}>
-          <Popup>
-            GPS: {props.marker[0]}, {props.marker[1]}
-            <br />
-            Share current location: {"  "}
-            <a href={url} target="blank" style={{ color: "rgb(2, 145, 2)" }}>
-              <BsWhatsapp />
-            </a>
-          </Popup>
-        </Marker>
-      )}
-    </LeafletControl>
+      </LeafletControl>
+    </div>
   );
 };
 
