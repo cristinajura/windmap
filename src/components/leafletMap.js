@@ -25,12 +25,68 @@ function ChangeView({ center, zoom }) {
 }
 
 const LeafletMap = (props) => {
-  const [mapStyle, setMapStyle] = useState(false);
+  const [mapStyle, setMapStyle] = useState("tile.mtbmap.cz/mtbmap_tiles");
+
+  const mtbMap = "tile.mtbmap.cz/mtbmap_tiles";
+  const streetMap = "{s}.tile.openstreetmap.org";
+  const cyclOsm = "{s}.tile-cyclosm.openstreetmap.fr/cyclosm";
+  const topoMap = "{s}.tile.opentopomap.org";
 
   const isFullScreen = props.fullScreen ? "goFullScreen" : "map";
 
   return (
     <div className={isFullScreen}>
+      <div style={{ marginLeft: "5px" }}>
+        Switch Map:
+        <button
+          className={props.fullScreen ? "" : "changeMap"}
+          style={
+            mapStyle === mtbMap
+              ? {
+                  backgroundImage: "url(/mtb.png)",
+                  boxShadow: "3px -2px darkblue",
+                }
+              : { backgroundImage: "url(/mtb.png)" }
+          }
+          onClick={() => setMapStyle(mtbMap)}
+        ></button>
+        <button
+          className={props.fullScreen ? "" : "changeMap"}
+          style={
+            mapStyle === streetMap
+              ? {
+                  backgroundImage: "url(/streetMap.png)",
+                  boxShadow: "3px -2px darkblue",
+                }
+              : { backgroundImage: "url(/streetMap.png)" }
+          }
+          onClick={() => setMapStyle(streetMap)}
+        ></button>
+        <button
+          className={props.fullScreen ? "" : "changeMap"}
+          style={
+            mapStyle === cyclOsm
+              ? {
+                  backgroundImage: "url(/cyclo.png)",
+                  boxShadow: "3px -2px darkblue",
+                }
+              : { backgroundImage: "url(/cyclo.png)" }
+          }
+          onClick={() => setMapStyle(cyclOsm)}
+        ></button>
+        <button
+          className={props.fullScreen ? "" : "changeMap"}
+          style={
+            mapStyle === topoMap
+              ? {
+                  backgroundImage: "url(/topoMap.png)",
+                  boxShadow: "3px -2px darkblue",
+                }
+              : { backgroundImage: "url(/topoMap.png)" }
+          }
+          onClick={() => setMapStyle(topoMap)}
+        ></button>
+      </div>
       <MapContainer
         center={props.marker}
         zoom={13}
@@ -43,22 +99,17 @@ const LeafletMap = (props) => {
         <Marker position={props.marker}>
           <Tooltip>{props.popup}</Tooltip>
         </Marker>
-        <button
-          style={
-            mapStyle
-              ? { backgroundImage: "url(/streetMap.png)" }
-              : { backgroundImage: "url(/topoMap.png)" }
-          }
-          className={props.fullScreen ? "fullScreenChangeMap" : "changeMap"}
-          onClick={() => setMapStyle(!mapStyle)}
-        ></button>
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url={
-            mapStyle
-              ? "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
-              : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution={
+            mapStyle === mtbMap
+              ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &amp; USGS'
+              : mapStyle === streetMap
+              ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              : mapStyle === cyclOsm
+              ? '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              : 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
           }
+          url={`https://${mapStyle}/{z}/{x}/{y}.png`}
         />
         <CurrentLocation
           marker={props.marker}

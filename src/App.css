@@ -373,10 +373,10 @@
 }
 
 .map {
-  margin: 35px auto 10px auto;
+  margin: 50px auto 15px auto;
   height: 600px;
   width: 100%;
-  padding: 10px;
+  padding: 10px 10px 60px 10px;
   box-shadow: 0 0 15px 1px rgb(180, 180, 180);
   border-radius: 5px;
   cursor: pointer;
@@ -385,6 +385,7 @@
   .map {
     width: 80%;
     height: 500px;
+    padding-bottom: 50px;
   }
 }
 @media (max-width: 600px) {
@@ -392,7 +393,7 @@
     width: 110%;
     margin-left: -5.5%;
     height: 400px;
-    padding: 5px 0px;
+    padding: 10px 0 50px 0;
   }
 }
 .goFullScreen {
@@ -402,56 +403,30 @@
 
 .changeMap {
   position: relative;
-  margin-top: 535px;
-  margin-left: 5px;
+  margin-bottom: 8px;
+  margin-left: 10px;
   z-index: 800;
-  width: 60px;
-  height: 60px;
-  border: 2px solid rgb(113, 112, 112);
+  width: 50px;
+  height: 40px;
+  border: 1px solid rgb(151, 150, 150);
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 1px 2px 3px rgb(95, 95, 95);
+  text-align: end;
 }
 .changeMap:hover {
   transform: scale(1.05);
 }
 @media (max-width: 1300px) {
   .changeMap {
-    width: 50px;
-    height: 50px;
-    margin-top: 445px;
+    width: 40px;
+    height: 30px;
   }
 }
 @media (max-width: 600px) {
   .changeMap {
-    margin-top: 345px;
-  }
-}
-.fullScreenChangeMap {
-  position: relative;
-  z-index: 800;
-  margin-top: 94vh;
-  margin-left: 10px;
-  width: 70px;
-  height: 70px;
-  border: 2px solid rgb(113, 112, 112);
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 2px 2px 5px rgb(149, 149, 149);
-}
-@media (max-width: 2050px) {
-  .fullScreenChangeMap {
-    margin-top: 92vh;
-  }
-}
-@media (max-width: 1650px) {
-  .fullScreenChangeMap {
-    margin-top: 90vh;
-  }
-}
-@media (max-width: 1300px) {
-  .fullScreenChangeMap {
-    margin-top: 88vh;
+    width: 35px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }
 
@@ -460,7 +435,7 @@
   color: #272d34;
   background: white;
   border: 1.5px solid rgb(148, 148, 148);
-  padding: 4px;
+  padding: 3px;
   z-index: 800;
   border-radius: 3px;
   cursor: pointer;
@@ -473,10 +448,10 @@
   color: #303840;
   background: white;
   border: 1.5px solid rgb(148, 148, 148);
-  padding: 4px;
+  padding: 3px;
   z-index: 800;
   cursor: pointer;
-  margin-bottom: 35px;
+  margin-bottom: 50px;
   margin-right: 3px;
   border-radius: 3px;
 }
@@ -489,7 +464,7 @@
 }
 @media (max-width: 1300px) {
   .shareLocationText {
-    margin: 0 auto 50px auto;
+    margin: 0px auto 50px auto;
     width: 80%;
   }
 }
