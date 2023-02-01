@@ -35,8 +35,6 @@ const CurrentLocation = (props) => {
   const [loading, setLoading] = useState(false);
   const [position, setPosition] = useState(null);
 
-  console.log("props.fullScreen", props.fullScreen);
-
   const map = useMapEvents({
     locationfound(e) {
       map.flyTo(e.latlng);

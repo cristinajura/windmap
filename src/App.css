@@ -402,29 +402,29 @@
 
 .changeMap {
   position: relative;
-  margin-top: 525px;
+  margin-top: 535px;
   margin-left: 5px;
   z-index: 800;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border: 2px solid rgb(113, 112, 112);
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 2px 2px 5px rgb(149, 149, 149);
+  box-shadow: 1px 2px 3px rgb(95, 95, 95);
 }
 .changeMap:hover {
   transform: scale(1.05);
 }
 @media (max-width: 1300px) {
   .changeMap {
-    width: 60px;
-    height: 60px;
-    margin-top: 435px;
+    width: 50px;
+    height: 50px;
+    margin-top: 445px;
   }
 }
 @media (max-width: 600px) {
   .changeMap {
-    margin-top: 335px;
+    margin-top: 345px;
   }
 }
 .fullScreenChangeMap {
@@ -466,7 +466,7 @@
   cursor: pointer;
 }
 .fullScreenIcon:hover {
-  color: rgb(48, 83, 164);
+  color: rgb(58, 96, 185);
 }
 .gpsIcon {
   font-size: 24px;
@@ -477,11 +477,11 @@
   z-index: 800;
   cursor: pointer;
   margin-bottom: 35px;
-  margin-right: 6px;
+  margin-right: 3px;
   border-radius: 3px;
 }
 .gpsIcon:hover {
-  color: rgb(48, 83, 164);
+  color: rgb(72, 105, 184);
 }
 
 .shareLocationText {

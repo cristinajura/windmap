@@ -2,7 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import CurrentWeather from "./components/currentWeather";
 import Forecast from "./components/forecast";
-import Search from "./components/search";
+import Search from "./components/searchGeolocation";
 import SearchParagliding from "./components/searchParagliding";
 import SearchOutdoor from "./components/searchOutdoor";
 import LeafletMap from "./components/leafletMap";

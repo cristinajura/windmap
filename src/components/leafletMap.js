@@ -53,6 +53,7 @@ const LeafletMap = (props) => {
           onClick={() => setMapStyle(!mapStyle)}
         ></button>
         <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url={
             mapStyle
               ? "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
