@@ -1,4 +1,4 @@
-import "../App.css";
+import "../../App.css";
 import SortDownIcon from "@rsuite/icons/SortDown";
 
 const CurrentWeather = ({ data }) => {

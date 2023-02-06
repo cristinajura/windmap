@@ -1,8 +1,8 @@
 import React from "react";
-import "../App.css";
+import "../../App.css";
 import Select from "react-select";
 import { FaSearch } from "react-icons/fa";
-import { outdoorLocations } from "../outdoor";
+import { outdoorLocations } from "../../locations/outdoor";
 
 const SearchOutdoor = ({ onSearchChange }) => {
   const handleChange = (selectSpot) => {

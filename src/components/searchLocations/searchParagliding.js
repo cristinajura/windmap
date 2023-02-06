@@ -1,8 +1,8 @@
 import React from "react";
-import "../App.css";
+import "../../App.css";
 import Select from "react-select";
 import { FaSearch } from "react-icons/fa";
-import { paraglidingSpots } from "../paragliding";
+import { paraglidingSpots } from "../../locations/paragliding";
 
 const SearchParagliding = ({ onSearchChange }) => {
   const handleChange = (selectSpot) => {

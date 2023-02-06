@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "../../App.css";
 import SortDownIcon from "@rsuite/icons/SortDown";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { RxDoubleArrowRight, RxDoubleArrowLeft } from "react-icons/rx";

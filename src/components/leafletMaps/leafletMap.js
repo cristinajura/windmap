@@ -25,7 +25,9 @@ function ChangeView({ center, zoom }) {
 }
 
 const LeafletMap = (props) => {
-  const [mapStyle, setMapStyle] = useState("tile.mtbmap.cz/mtbmap_tiles");
+  const [mapStyle, setMapStyle] = useState(
+    "{s}.tile-cyclosm.openstreetmap.fr/cyclosm"
+  );
 
   const mtbMap = "tile.mtbmap.cz/mtbmap_tiles";
   const streetMap = "{s}.tile.openstreetmap.org";
@@ -41,14 +43,14 @@ const LeafletMap = (props) => {
         <button
           className={props.fullScreen ? "" : "changeMap"}
           style={
-            mapStyle === mtbMap
+            mapStyle === cyclOsm
               ? {
-                  backgroundImage: "url(/mtb.png)",
+                  backgroundImage: "url(/cyclo.png)",
                   boxShadow: "3px -2px darkblue",
                 }
-              : { backgroundImage: "url(/mtb.png)" }
+              : { backgroundImage: "url(/cyclo.png)" }
           }
-          onClick={() => setMapStyle(mtbMap)}
+          onClick={() => setMapStyle(cyclOsm)}
         ></button>
         <button
           className={props.fullScreen ? "" : "changeMap"}
@@ -65,14 +67,14 @@ const LeafletMap = (props) => {
         <button
           className={props.fullScreen ? "" : "changeMap"}
           style={
-            mapStyle === cyclOsm
+            mapStyle === mtbMap
               ? {
-                  backgroundImage: "url(/cyclo.png)",
+                  backgroundImage: "url(/mtb.png)",
                   boxShadow: "3px -2px darkblue",
                 }
-              : { backgroundImage: "url(/cyclo.png)" }
+              : { backgroundImage: "url(/mtb.png)" }
           }
-          onClick={() => setMapStyle(cyclOsm)}
+          onClick={() => setMapStyle(mtbMap)}
         ></button>
         <button
           className={props.fullScreen ? "" : "changeMap"}

@@ -1,15 +1,15 @@
 import "./App.css";
 import { useState } from "react";
-import CurrentWeather from "./components/currentWeather";
-import Forecast from "./components/forecast";
-import Search from "./components/searchGeolocation";
-import SearchParagliding from "./components/searchParagliding";
-import SearchOutdoor from "./components/searchOutdoor";
-import LeafletMap from "./components/leafletMap";
+import CurrentWeather from "./components/weatherForecast/currentWeather";
+import Forecast from "./components/weatherForecast/forecast";
+import Search from "./components/searchLocations/searchGeolocation";
+import SearchParagliding from "./components/searchLocations/searchParagliding";
+import SearchOutdoor from "./components/searchLocations/searchOutdoor";
+import LeafletMap from "./components/leafletMaps/leafletMap";
 import WindyMap from "./components/windyMap";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { ShareLocation, AddLocation } from "./components/shareLocation";
+import { ShareLocation, AddLocation } from "./components/shareLocText";
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);

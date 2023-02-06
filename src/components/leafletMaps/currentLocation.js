@@ -1,6 +1,6 @@
 import L from "leaflet";
 import React, { useState, useEffect, useRef } from "react";
-import "../App.css";
+import "../../App.css";
 import { useMapEvents, Marker, Popup } from "react-leaflet";
 import { BiCurrentLocation } from "react-icons/bi";
 import { ActionIcon } from "@mantine/core";
