@@ -83,7 +83,7 @@ const Forecast = ({ data }) => {
                   ? "Today"
                   : "Tomorrow"}
               </div>
-              <div>{data.list[0].dt_txt.slice(0, 10)}</div>
+              <div>{data?.list[0].dt_txt.slice(0, 10)}</div>
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide}>
@@ -93,7 +93,7 @@ const Forecast = ({ data }) => {
               <></>
             )}
           </div>
-          {data.list.slice(0, currHourLength).map((item, idx) => (
+          {data?.list.slice(0, currHourLength).map((item, idx) => (
             <div key={idx}>
               <div className="details">
                 <div className="line"></div>
@@ -250,7 +250,7 @@ const Forecast = ({ data }) => {
                   ? "Tomorrow"
                   : forecastDays[2]}
               </div>
-              <div>{data.list[currHourLength].dt_txt.slice(0, 10)}</div>
+              <div>{data?.list[currHourLength].dt_txt.slice(0, 10)}</div>
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide1}>
@@ -260,7 +260,7 @@ const Forecast = ({ data }) => {
               <></>
             )}
           </div>
-          {data.list
+          {data?.list
             .slice(currHourLength, currHourLength + 8)
             .map((item, idx) => (
               <div key={idx}>
@@ -419,7 +419,7 @@ const Forecast = ({ data }) => {
                   ? forecastDays[3]
                   : forecastDays[2]}
               </div>
-              <div>{data.list[currHourLength + 8].dt_txt.slice(0, 10)}</div>
+              <div>{data?.list[currHourLength + 8].dt_txt.slice(0, 10)}</div>
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide2}>
@@ -429,7 +429,7 @@ const Forecast = ({ data }) => {
               <></>
             )}
           </div>
-          {data.list
+          {data?.list
             .slice(currHourLength + 8, currHourLength + 16)
             .map((item, idx) => (
               <div key={idx}>
@@ -588,7 +588,7 @@ const Forecast = ({ data }) => {
                   ? forecastDays[4]
                   : forecastDays[3]}
               </div>
-              <div>{data.list[currHourLength + 16].dt_txt.slice(0, 10)}</div>
+              <div>{data?.list[currHourLength + 16].dt_txt.slice(0, 10)}</div>
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide3}>
@@ -598,7 +598,7 @@ const Forecast = ({ data }) => {
               <></>
             )}
           </div>
-          {data.list
+          {data?.list
             .slice(currHourLength + 16, currHourLength + 24)
             .map((item, idx) => (
               <div key={idx}>

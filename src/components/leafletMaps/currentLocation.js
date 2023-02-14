@@ -43,11 +43,11 @@ const CurrentLocation = (props) => {
     },
   });
 
-  let url = `https://api.whatsapp.com/send?text=GPS: ${props.marker[0]}, ${props.marker[1]}`;
+  let url = `https://api.whatsapp.com/send?text=GPS: ${position?.lat}, ${position?.lng}`;
 
   return (
     <div>
-      <LeafletControl position={"bottomright"}>
+      <LeafletControl position={"topright"}>
         <ActionIcon
           onClick={() => {
             setLoading(true);
@@ -63,7 +63,7 @@ const CurrentLocation = (props) => {
         {position === null ? null : (
           <Marker position={position}>
             <Popup>
-              GPS: {props.marker[0]}, {props.marker[1]}
+              GPS: {position?.lat}, {position?.lng}
               <br />
               Share current location: {"  "}
               <a href={url} target="blank" style={{ color: "rgb(2, 145, 2)" }}>
@@ -73,7 +73,7 @@ const CurrentLocation = (props) => {
           </Marker>
         )}
       </LeafletControl>
-      <LeafletControl position={"topright"}>
+      <LeafletControl position={"bottomright"}>
         <div onClick={props.onClick}>
           {props.fullScreen ? (
             <BiExitFullscreen className="fullScreenIcon" />
