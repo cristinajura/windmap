@@ -7,12 +7,7 @@ import SearchParagliding from "./components/searchLocations/searchParagliding";
 import SearchOutdoor from "./components/searchLocations/searchOutdoor";
 import LeafletMap from "./components/leafletMaps/leafletMap";
 import WindyMap from "./components/windyMap";
-import {
-  WEATHER_API_URL,
-  WEATHER_API_KEY,
-  GOOGLE_API_KEY,
-  GOOGLE_API_URL,
-} from "./api";
+import { WEATHER_API_URL, WEATHER_API_KEY, WEATHER_GEO_API_URL } from "./api";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { ShareLocation, AddLocation } from "./components/shareLocText";
 import { Alert } from "@mui/material";
@@ -56,17 +51,14 @@ function App() {
     setMarker([userLat, userLon]);
   }, [isCookie, userLat, userLon]);
 
-  console.log("userLat", userLat);
-  console.log("isCookie", isCookie);
-
   useEffect(() => {
     isCookie === "2"
       ? fetch(
-          `${GOOGLE_API_URL}address=${userLat},${userLon}&key=${GOOGLE_API_KEY}`
+          `${WEATHER_GEO_API_URL}/reverse?lat=${userLat}&lon=${userLon}&appid=${WEATHER_API_KEY}`
         )
           .then(async (response) => {
             const data = await response.json();
-            setUserLoc(data?.results[0].address_components[2].long_name);
+            setUserLoc(data[0].name + ", " + data[0].country);
             setPopup(userLoc);
           })
           .catch((err) => console.log(err))
