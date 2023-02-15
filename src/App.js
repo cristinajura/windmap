@@ -10,8 +10,8 @@ import WindyMap from "./components/windyMap";
 import {
   WEATHER_API_URL,
   WEATHER_API_KEY,
-  Google_API_Key,
-  Google_API_URL,
+  GOOGLE_API_KEY,
+  GOOGLE_API_URL,
 } from "./api";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { ShareLocation, AddLocation } from "./components/shareLocText";
@@ -34,19 +34,19 @@ function App() {
   const [cookies, setCookie] = useCookies();
 
   const handleOnClose = () => {
-    setCookie("deviceLoc", false, { maxAge: 3600 * 24 * 120 });
+    setCookie("deviceLoc", "1", { maxAge: 3600 * 24 * 120 });
     setOnClose(true);
   };
   const closeAlert = onClose ? "hide" : "";
 
   const handleDeviceLocation = () => {
-    setCookie("deviceLoc", true, { maxAge: 3600 * 24 * 120 });
+    setCookie("deviceLoc", "2", { maxAge: 3600 * 24 * 120 });
     setOnClose(true);
   };
   const isCookie = cookies.deviceLoc;
 
   useEffect(() => {
-    isCookie
+    isCookie === "2"
       ? navigator.geolocation.getCurrentPosition((position) => {
           setUserLat(position.coords.latitude);
           setUserLon(position.coords.longitude);
@@ -56,14 +56,17 @@ function App() {
     setMarker([userLat, userLon]);
   }, [isCookie, userLat, userLon]);
 
+  console.log("userLat", userLat);
+  console.log("isCookie", isCookie);
+
   useEffect(() => {
-    isCookie
+    isCookie === "2"
       ? fetch(
-          `${Google_API_URL}address=${userLat},${userLon}&key=${Google_API_Key}`
+          `${GOOGLE_API_URL}address=${userLat},${userLon}&key=${GOOGLE_API_KEY}`
         )
           .then(async (response) => {
             const data = await response.json();
-            setUserLoc(data.results[0].address_components[2].long_name);
+            setUserLoc(data?.results[0].address_components[2].long_name);
             setPopup(userLoc);
           })
           .catch((err) => console.log(err))
