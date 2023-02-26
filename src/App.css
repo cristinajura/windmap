@@ -45,6 +45,7 @@
 .appTitle {
   display: flex;
   align-items: left;
+  margin-bottom: 20px;
 }
 @media (max-width: 1300px) {
   .appTitle {
@@ -493,17 +494,18 @@
   color: rgb(72, 105, 184);
 }
 
-.shareLocationText {
+.addLocationText {
   margin-bottom: 70px;
 }
 @media (max-width: 1300px) {
-  .shareLocationText {
+  .addLocationText {
     margin: 0px auto 50px auto;
     width: 80%;
   }
 }
 @media (max-width: 600px) {
-  .shareLocationText {
+  .addLocationText {
+    margin-bottom: 80px;
     width: 100%;
   }
 }
@@ -570,7 +572,7 @@
 }
 
 .bottom {
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 10px;
   float: right;
   font-size: 13px;

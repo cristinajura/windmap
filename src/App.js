@@ -9,7 +9,7 @@ import LeafletMap from "./components/leafletMaps/leafletMap";
 import WindyMap from "./components/windyMap";
 import { WEATHER_API_URL, WEATHER_API_KEY, WEATHER_GEO_API_URL } from "./api";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { ShareLocation, AddLocation } from "./components/shareLocText";
+import { AddLocationText } from "./components/addLocText";
 import { Alert } from "@mui/material";
 import { ImLocation2 } from "react-icons/im";
 import { useCookies } from "react-cookie";
@@ -204,9 +204,9 @@ function App() {
         />
       </div>
       <div className={fullMap}>
-        <ShareLocation marker={marker} popup={popup} />
+        <AddLocationText />
         <WindyMap />
-        <AddLocation />
+        <div className="bottom">@2023 windmap</div>
       </div>
     </div>
   );

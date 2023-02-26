@@ -63,7 +63,7 @@ const CurrentLocation = (props) => {
         {position === null ? null : (
           <Marker position={position}>
             <Popup>
-              GPS: {position?.lat}, {position?.lng}
+              GPS: {position.lat}, {position.lng}
               <br />
               Share current location: {"  "}
               <a href={url} target="blank" style={{ color: "rgb(2, 145, 2)" }}>

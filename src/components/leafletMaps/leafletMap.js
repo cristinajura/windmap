@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-import {
-  MapContainer,
-  Marker,
-  TileLayer,
-  useMap,
-  Tooltip,
-} from "react-leaflet";
+import { MapContainer, Marker, TileLayer, useMap, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import CurrentLocation from "./currentLocation";
+import { BsWhatsapp } from "react-icons/bs";
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -35,6 +30,8 @@ const LeafletMap = (props) => {
   const topoMap = "{s}.tile.opentopomap.org";
 
   const isFullScreen = props.fullScreen ? "goFullScreen" : "map";
+
+  let url = `https://api.whatsapp.com/send?text=${props.popup}, GPS: ${props.marker[0]}, ${props.marker[1]}`;
 
   return (
     <div className={isFullScreen}>
@@ -99,7 +96,16 @@ const LeafletMap = (props) => {
       >
         <ChangeView center={props.marker} zoom={13} />
         <Marker position={props.marker}>
-          <Tooltip>{props.popup}</Tooltip>
+          <Popup>
+            GPS: {props.marker[0]}, {props.marker[1]}
+            <br />
+            {props.popup}
+            <br />
+            Share location: {"  "}
+            <a href={url} target="blank" style={{ color: "rgb(2, 145, 2)" }}>
+              <BsWhatsapp />
+            </a>
+          </Popup>
         </Marker>
         <TileLayer
           attribution={
@@ -114,7 +120,6 @@ const LeafletMap = (props) => {
           url={`https://${mapStyle}/{z}/{x}/{y}.png`}
         />
         <CurrentLocation
-          marker={props.marker}
           fullScreen={props.fullScreen}
           onClick={props.onClick}
         />
