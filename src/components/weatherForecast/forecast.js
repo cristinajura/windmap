@@ -44,7 +44,10 @@ const Forecast = ({ data }) => {
     WEEK_DAY.slice(0, today)
   );
 
+  const currTimeZoneDif = data?.city.timezone / 3600;
+  const localHour = new Date().getUTCHours() + currTimeZoneDif;
   const hourInDay = new Date().getHours();
+  const hourDif = hourInDay - localHour;
   const currHour =
     hourInDay < 2
       ? HOURS
@@ -64,6 +67,33 @@ const Forecast = ({ data }) => {
       ? HOURS.slice(7)
       : HOURS;
   const currHourLength = currHour.length;
+
+  const currLocHour =
+    hourDif !== 0
+      ? currHour
+          .map((x) => parseInt(x))
+          .map((x) => x - hourDif)
+          .map((x) => (x < 0 ? (x = 24 + x) : x))
+          .map((x) => (x > 23 ? (x = x - 24) : x))
+          .map((x) =>
+            x > 9
+              ? Math.round(x).toString() + ":00"
+              : "0" + Math.round(x).toString() + ":00"
+          )
+      : "";
+
+  const currentHour =
+    hourDif !== 0
+      ? HOURS.map((x) => parseInt(x))
+          .map((x) => x - hourDif)
+          .map((x) => (x < 0 ? (x = 24 + x) : x))
+          .map((x) => (x > 23 ? (x = x - 24) : x))
+          .map((x) =>
+            x > 9
+              ? Math.round(x).toString() + ":00"
+              : "0" + Math.round(x).toString() + ":00"
+          )
+      : "";
 
   return (
     <div>
@@ -98,6 +128,16 @@ const Forecast = ({ data }) => {
               <div className="details">
                 <div className="line"></div>
                 <div className="hours">{currHour[idx]}</div>
+                <div
+                  className="hours"
+                  style={{
+                    marginTop: "-10px",
+                    marginBottom: "-20px",
+                    fontSize: "12.5px",
+                  }}
+                >
+                  {currLocHour[idx]}
+                </div>
                 <div className="icon-align">
                   <img
                     src={
@@ -267,6 +307,16 @@ const Forecast = ({ data }) => {
                 <div className="details">
                   <div className="line"></div>
                   <div className="hours">{HOURS[idx]}</div>
+                  <div
+                    className="hours"
+                    style={{
+                      marginTop: "-10px",
+                      marginBottom: "-20px",
+                      fontSize: "12.5px",
+                    }}
+                  >
+                    {currentHour[idx]}
+                  </div>
                   <div className="icon-align">
                     <img
                       src={
@@ -436,6 +486,16 @@ const Forecast = ({ data }) => {
                 <div className="details">
                   <div className="line"></div>
                   <div className="hours">{HOURS[idx]}</div>
+                  <div
+                    className="hours"
+                    style={{
+                      marginTop: "-10px",
+                      marginBottom: "-20px",
+                      fontSize: "12.5px",
+                    }}
+                  >
+                    {currentHour[idx]}
+                  </div>
                   <div className="icon-align">
                     <img
                       src={
@@ -605,6 +665,16 @@ const Forecast = ({ data }) => {
                 <div className="details">
                   <div className="line"></div>
                   <div className="hours">{HOURS[idx]}</div>
+                  <div
+                    className="hours"
+                    style={{
+                      marginTop: "-10px",
+                      marginBottom: "-20px",
+                      fontSize: "12.5px",
+                    }}
+                  >
+                    {currentHour[idx]}
+                  </div>
                   <div className="icon-align">
                     <img
                       src={
