@@ -144,24 +144,38 @@ function App() {
               }}
             >
               <div style={{ display: "flex", marginTop: "10px" }}>
-                <div style={{ fontSize: "18px", marginLeft: "10px" }}>
+                <div style={{ fontSize: "17px", marginLeft: "10px" }}>
                   windmap.store
                 </div>
                 <img
                   src="/windmap.png"
                   alt="logo"
-                  style={{ width: "28px", marginLeft: "10px" }}
+                  style={{ width: "28px", marginLeft: "8px" }}
                 />
               </div>
-              <br />
-              <div style={{ display: "flex" }}>
-                <div style={{ marginRight: "5px", marginLeft: "10px" }}>
-                  wants to know your device
+              <div
+                style={{
+                  display: "flex",
+                  marginTop: "10px",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "13px",
+                    marginRight: "2px",
+                    marginLeft: "10px",
+                  }}
+                >
+                  wants to know your device location
                 </div>
                 <ImLocation2 />
-                <div style={{ marginLeft: "5px" }}>location</div>
               </div>
-              <div style={{ display: "flex", marginLeft: "40px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  marginLeft: "15px",
+                }}
+              >
                 <button className="alertBtn" onClick={handleDeviceLocation}>
                   Allow
                 </button>
