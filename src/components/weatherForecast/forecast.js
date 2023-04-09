@@ -2,7 +2,12 @@ import React from "react";
 import "../../App.css";
 import SortDownIcon from "@rsuite/icons/SortDown";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { RxDoubleArrowRight, RxDoubleArrowLeft } from "react-icons/rx";
+import {
+  RxDoubleArrowRight,
+  RxDoubleArrowLeft,
+  RxDoubleArrowDown,
+  RxDoubleArrowUp,
+} from "react-icons/rx";
 
 const WEEK_DAY = [
   "Monday",
@@ -114,6 +119,11 @@ const Forecast = ({ data }) => {
                   : "Tomorrow"}
               </div>
               <div>{data?.list[0].dt_txt.slice(0, 10)}</div>
+              { !isTabletOrPhone ? show ? (
+                <RxDoubleArrowUp className="arrowDown" />
+              ) : (
+                <RxDoubleArrowDown className="arrowDown" />
+              ) : null}
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide}>
@@ -291,6 +301,11 @@ const Forecast = ({ data }) => {
                   : forecastDays[2]}
               </div>
               <div>{data?.list[currHourLength].dt_txt.slice(0, 10)}</div>
+              { !isTabletOrPhone ? show1 ? (
+                <RxDoubleArrowUp className="arrowDown" />
+              ) : (
+                <RxDoubleArrowDown className="arrowDown" />
+              ) : null}
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide1}>
@@ -470,6 +485,11 @@ const Forecast = ({ data }) => {
                   : forecastDays[2]}
               </div>
               <div>{data?.list[currHourLength + 8].dt_txt.slice(0, 10)}</div>
+              {!isTabletOrPhone ? show2 ? (
+                <RxDoubleArrowUp className="arrowDown" />
+              ) : (
+                <RxDoubleArrowDown className="arrowDown" />
+              ) : null}
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide2}>
@@ -649,6 +669,13 @@ const Forecast = ({ data }) => {
                   : forecastDays[3]}
               </div>
               <div>{data?.list[currHourLength + 16].dt_txt.slice(0, 10)}</div>
+              {!isTabletOrPhone ? (
+                show3 ? (
+                  <RxDoubleArrowUp className="arrowDown" />
+                ) : (
+                  <RxDoubleArrowDown className="arrowDown" />
+                )
+              ) : null}
             </div>
             {!isTabletOrPhone ? (
               <div className={showOrHide3}>

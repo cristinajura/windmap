@@ -19,12 +19,12 @@ function App() {
   const [iniForecast, setIniForecast] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
-  const [marker, setMarker] = useState([45.368676, 22.88771]);
+  const [marker, setMarker] = useState([45.35954, 22.885367]);
   const [popup, setPopup] = useState("Retezat National Park, RO");
   const [fullScreen, setFullScreen] = useState(false);
   const [onClose, setOnClose] = useState(false);
-  const [userLat, setUserLat] = useState(45.368676);
-  const [userLon, setUserLon] = useState(22.88771);
+  const [userLat, setUserLat] = useState(45.35954);
+  const [userLon, setUserLon] = useState(22.885367);
   const [userLoc, setUserLoc] = useState("Retezat National Park, RO");
   const [cookies, setCookie] = useCookies();
 
