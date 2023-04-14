@@ -119,10 +119,12 @@ const Forecast = ({ data }) => {
                   : "Tomorrow"}
               </div>
               <div>{data?.list[0].dt_txt.slice(0, 10)}</div>
-              { !isTabletOrPhone ? show ? (
-                <RxDoubleArrowUp className="arrowDown" />
-              ) : (
-                <RxDoubleArrowDown className="arrowDown" />
+              {!isTabletOrPhone ? (
+                show ? (
+                  <RxDoubleArrowUp className="arrowCircle arrowDown" />
+                ) : (
+                  <RxDoubleArrowDown className="arrowCircle arrowDown" />
+                )
               ) : null}
             </div>
             {!isTabletOrPhone ? (
@@ -272,11 +274,11 @@ const Forecast = ({ data }) => {
           <div className="line"></div>
           {show && isTabletOrPhone ? (
             <div className="arrow">
-              <RxDoubleArrowLeft />
+              <RxDoubleArrowLeft className="arrowCircle" />
             </div>
           ) : isTabletOrPhone ? (
             <div className="arrow">
-              <RxDoubleArrowRight />
+              <RxDoubleArrowRight className="arrowCircle" />
             </div>
           ) : (
             <></>
@@ -301,10 +303,12 @@ const Forecast = ({ data }) => {
                   : forecastDays[2]}
               </div>
               <div>{data?.list[currHourLength].dt_txt.slice(0, 10)}</div>
-              { !isTabletOrPhone ? show1 ? (
-                <RxDoubleArrowUp className="arrowDown" />
-              ) : (
-                <RxDoubleArrowDown className="arrowDown" />
+              {!isTabletOrPhone ? (
+                show1 ? (
+                  <RxDoubleArrowUp className="arrowCircle arrowDown" />
+                ) : (
+                  <RxDoubleArrowDown className="arrowCircle arrowDown" />
+                )
               ) : null}
             </div>
             {!isTabletOrPhone ? (
@@ -457,11 +461,11 @@ const Forecast = ({ data }) => {
           <div className="line"></div>
           {show1 && isTabletOrPhone ? (
             <div className="arrow">
-              <RxDoubleArrowLeft />
+              <RxDoubleArrowLeft className="arrowCircle" />
             </div>
           ) : isTabletOrPhone ? (
             <div className="arrow">
-              <RxDoubleArrowRight />
+              <RxDoubleArrowRight className="arrowCircle" />
             </div>
           ) : (
             <></>
@@ -485,10 +489,12 @@ const Forecast = ({ data }) => {
                   : forecastDays[2]}
               </div>
               <div>{data?.list[currHourLength + 8].dt_txt.slice(0, 10)}</div>
-              {!isTabletOrPhone ? show2 ? (
-                <RxDoubleArrowUp className="arrowDown" />
-              ) : (
-                <RxDoubleArrowDown className="arrowDown" />
+              {!isTabletOrPhone ? (
+                show2 ? (
+                  <RxDoubleArrowUp className="arrowCircle arrowDown" />
+                ) : (
+                  <RxDoubleArrowDown className="arrowCircle arrowDown" />
+                )
               ) : null}
             </div>
             {!isTabletOrPhone ? (
@@ -641,11 +647,11 @@ const Forecast = ({ data }) => {
           <div className="line"></div>
           {show2 && isTabletOrPhone ? (
             <div className="arrow">
-              <RxDoubleArrowLeft />
+              <RxDoubleArrowLeft className="arrowCircle" />
             </div>
           ) : isTabletOrPhone ? (
             <div className="arrow">
-              <RxDoubleArrowRight />
+              <RxDoubleArrowRight className="arrowCircle" />
             </div>
           ) : (
             <></>
@@ -671,9 +677,9 @@ const Forecast = ({ data }) => {
               <div>{data?.list[currHourLength + 16].dt_txt.slice(0, 10)}</div>
               {!isTabletOrPhone ? (
                 show3 ? (
-                  <RxDoubleArrowUp className="arrowDown" />
+                  <RxDoubleArrowUp className="arrowCircle arrowDown" />
                 ) : (
-                  <RxDoubleArrowDown className="arrowDown" />
+                  <RxDoubleArrowDown className="arrowCircle arrowDown" />
                 )
               ) : null}
             </div>
@@ -827,11 +833,11 @@ const Forecast = ({ data }) => {
           <div className="line"></div>
           {show3 && isTabletOrPhone ? (
             <div className="arrow">
-              <RxDoubleArrowLeft />
+              <RxDoubleArrowLeft className="arrowCircle" />
             </div>
           ) : isTabletOrPhone ? (
             <div className="arrow">
-              <RxDoubleArrowRight />
+              <RxDoubleArrowRight className="arrowCircle" />
             </div>
           ) : (
             <></>

@@ -406,15 +406,21 @@
   margin-bottom: -12px;
   margin-top: 5px;
 }
-.arrowDown {
-  margin-top: 90px;
-  margin-left: 10px;
+.arrowCircle {
   width: 24px;
   height: 24px;
+  margin-top: 3.5px;
   border-radius: 50%;
   background: rgb(84, 108, 116, 0.8);
-  padding: 4px;
+  padding: 3px;
   box-shadow: 0 0 3px 1px rgb(84, 83, 83);
+}
+.arrowCircle:hover {
+  padding: 4px;
+}
+.arrowDown {
+  margin-top: 92px;
+  margin-left: 10px;
 }
 
 .map {

@@ -7,20 +7,24 @@ const Search = ({ onSearchChange }) => {
     onSearchChange(searchData);
   };
 
-  const loadOptions = (inputCity) => {
-    return fetch(`${GEO_API_URL}/cities?namePrefix=${inputCity}`, geoApiOptions)
-      .then((response) => response.json())
-      .then((response) => {
-        return {
-          options: response.data.map((city) => {
-            return {
-              value: `${city.latitude} ${city.longitude}`,
-              label: `${city.name}, ${city.countryCode}`,
-            };
-          }),
-        };
-      })
-      .catch((err) => console.error(err));
+  const loadOptions = async (inputCity) => {
+    try {
+      const response = await fetch(
+        `${GEO_API_URL}/cities?namePrefix=${inputCity}`,
+        geoApiOptions
+      );
+      const response_1 = await response.json();
+      return {
+        options: response_1.data.map((city) => {
+          return {
+            value: `${city.latitude} ${city.longitude}`,
+            label: `${city.name}, ${city.countryCode}`,
+          };
+        }),
+      };
+    } catch (err) {
+      return console.error(err);
+    }
   };
 
   return (
