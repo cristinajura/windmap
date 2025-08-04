@@ -22,8 +22,9 @@ const CurrentWeather = ({ data }) => {
       style={data ? { maxWidth: "1100px" } : { maxWidth: "600px" }}
     >
       <img
-        src="https://live.staticflickr.com/65535/52730473419_73084eae42_z.jpg"
-        alt="paragliding flight"
+        // src="https://live.staticflickr.com/65535/52730473419_73084eae42_z.jpg"
+        src="/202020.jpg"
+        alt="windmap"
       />
       <div className="weather">
         {data ? (
